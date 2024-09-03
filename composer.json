@@ -7,6 +7,10 @@
         "base"
     ],
     "homepage": "https://github.com/bit-es/base",
+    "repositories": [
+        { "type": "composer", "url": "https://github.com/bit-es/base" }
+    ],
+    "require-all": true,
     "support": {
         "issues": "https://github.com/bit-es/base/issues",
         "source": "https://github.com/bit-es/base"
