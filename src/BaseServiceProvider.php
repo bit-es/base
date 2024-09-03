@@ -146,7 +146,7 @@ class BaseServiceProvider extends PackageServiceProvider
     protected function getMigrations(): array
     {
         return [
-            'create_base_table',
+            'create_general-settings_table',
         ];
     }
 }
