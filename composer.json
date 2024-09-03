@@ -3,8 +3,9 @@
     "description": "This is my bites package base",
     "keywords": [
         "bit-es",
+        "base",
         "laravel",
-        "base"
+        "filament"
     ],
     "homepage": "https://github.com/bit-es/base",
     "support": {
@@ -34,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Bites\\Base\\": "src/",
-            "Bites\\Base\\Database\\Factories\\": "database/factories/"
+            "Bit-es\\Base\\": "src/",
+            "Bit-es\\Base\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Bites\\Base\\Tests\\": "tests/"
+            "Bit-es\\Base\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -58,10 +59,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Bites\\Base\\BaseServiceProvider"
+                "Bit-es\\Base\\BaseServiceProvider"
             ],
             "aliases": {
-                "Base": "Bites\\Base\\Facades\\Base"
+                "Base": "Bit-es\\Base\\Facades\\Base"
             }
         }
     },
