@@ -2,6 +2,10 @@
 
 All notable changes to `base` will be documented in this file.
 
+## v1.0.1 - 2024-09-03
+
+**Full Changelog**: https://github.com/bit-es/base/compare/latest...v1.0.1
+
 ## v1.0.0 - 2024-09-03
 
 1st test release
