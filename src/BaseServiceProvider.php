@@ -101,8 +101,8 @@ class BaseServiceProvider extends PackageServiceProvider
     {
         return [
             // AlpineComponent::make('base', __DIR__ . '/../resources/dist/components/base.js'),
-            Css::make('base-styles', __DIR__ . '/../resources/dist/base.css'),
-            Js::make('base-scripts', __DIR__ . '/../resources/dist/base.js'),
+            //Css::make('base-styles', __DIR__ . '/../resources/dist/base.css'),
+            //Js::make('base-scripts', __DIR__ . '/../resources/dist/base.js'),
         ];
     }
 
