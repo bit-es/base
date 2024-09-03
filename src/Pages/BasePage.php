@@ -24,7 +24,7 @@ use Bites\Base\Services\MailSettingsService;
 
 class BasePage extends Page
 {
-    protected static string $view = 'base:filament.pages.general-settings-page';
+    protected static string $view = 'base::filament.pages.general-settings-page';
 
     /**
      * @throws \Exception
@@ -78,7 +78,7 @@ class BasePage extends Page
 
     public function mount(): void
     {
-        $this->data = GeneralSetting::first()?->toArray() ?: [];
+        $this->data = collect(config('base'))->toArray();
 
         $this->data['seo_description'] = $this->data['seo_description'] ?? '';
         $this->data['seo_preview'] = $this->data['seo_preview'] ?? '';
