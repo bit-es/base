@@ -1,6 +1,6 @@
 {
     "name": "bit-es/base",
-    "description": "This is my package base",
+    "description": "This is my bites package base",
     "keywords": [
         "bit-es",
         "laravel",
