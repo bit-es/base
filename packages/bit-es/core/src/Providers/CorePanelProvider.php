@@ -10,6 +10,10 @@ use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Support\Facades\FilamentIcon;
+use Filament\Support\Facades\FilamentView;
+use Filament\View\PanelsIconAlias;
+use Filament\View\PanelsRenderHook;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -19,10 +23,6 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Illuminate\View\View;
-use Filament\Support\Facades\FilamentView;
-use Filament\View\PanelsRenderHook;
-use Filament\Support\Facades\FilamentIcon;
-use Filament\View\PanelsIconAlias;
 
 class CorePanelProvider extends PanelProvider
 {
@@ -33,7 +33,7 @@ class CorePanelProvider extends PanelProvider
             ->path('core')
             ->brandName('Administration')
             ->login()
-            ->renderHook('panels::auth.login.form.after', fn(): View => view('bites::panel.extra'))
+            ->renderHook('panels::auth.login.form.after', fn (): View => view('bites::panel.extra'))
             ->default()
             ->colors([
                 'primary' => Color::Yellow,
@@ -76,15 +76,16 @@ class CorePanelProvider extends PanelProvider
                 Authenticate::class,
             ]);
     }
+
     public function boot()
     {
         FilamentView::registerRenderHook(
             PanelsRenderHook::USER_MENU_BEFORE,
-            fn(): View => view('bites::panel.icon-links-umb'),
+            fn (): View => view('bites::panel.icon-links-umb'),
         );
         FilamentView::registerRenderHook(
             PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
-            fn(): View => view('bites::panel.icon-links-gsb'),
+            fn (): View => view('bites::panel.icon-links-gsb'),
         );
         FilamentIcon::register([
             PanelsIconAlias::PAGES_DASHBOARD_NAVIGATION_ITEM => 'myicon-dashboard',

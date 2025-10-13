@@ -2,9 +2,9 @@
 
 namespace Bites\Core\Resources\Turtles\Schemas;
 
-use Filament\Schemas\Schema;
-use Filament\Schemas\Components\Section;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
 
 class TurtleInfolist
 {
@@ -50,7 +50,6 @@ class TurtleInfolist
                 //     TextEntry::make('description')->columnSpanFull(),
                 // ]),
 
-
                 Section::make('LeftHindLimb')->description('Criteria: Objectives & Targets')
                     ->schema([
                         TextEntry::make('kpis'),
@@ -65,8 +64,6 @@ class TurtleInfolist
                         TextEntry::make('supplier.name')->label('Supplier')->color('info')->icon('myicon-c-supplier'),
                         TextEntry::make('form.name')->label('Customer')->color('danger')->icon('myicon-c-customer'),
                     ]),
-
-
 
             ]);
     }

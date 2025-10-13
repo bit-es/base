@@ -2,13 +2,13 @@
 
 namespace Bites\Qas\Resources\NonConformities;
 
+use BackedEnum;
+use Bites\Qas\Models\NonConformity;
 use Bites\Qas\Resources\NonConformities\Pages\CreateNonConformity;
 use Bites\Qas\Resources\NonConformities\Pages\EditNonConformity;
 use Bites\Qas\Resources\NonConformities\Pages\ListNonConformities;
 use Bites\Qas\Resources\NonConformities\Schemas\NonConformityForm;
 use Bites\Qas\Resources\NonConformities\Tables\NonConformitiesTable;
-use Bites\Qas\Models\NonConformity;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;

@@ -117,4 +117,3 @@ trait BitesModel
         $attribute->save();
     }
 }
-

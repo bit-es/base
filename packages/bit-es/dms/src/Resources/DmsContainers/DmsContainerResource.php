@@ -2,28 +2,31 @@
 
 namespace Bites\Dms\Resources\DmsContainers;
 
+use BackedEnum;
+use Bites\Dms\Models\DmsContainer;
+use Bites\Dms\Relations;
 use Bites\Dms\Resources\DmsContainers\Pages\CreateDmsContainer;
 use Bites\Dms\Resources\DmsContainers\Pages\EditDmsContainer;
 use Bites\Dms\Resources\DmsContainers\Pages\ListDmsContainers;
 use Bites\Dms\Resources\DmsContainers\Schemas\DmsContainerForm;
 use Bites\Dms\Resources\DmsContainers\Tables\DmsContainersTable;
-use Bites\Dms\Models\DmsContainer;
-use Bites\Dms\Relations;
-use BackedEnum;
-use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class DmsContainerResource extends Resource
 {
     protected static ?string $model = DmsContainer::class;
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedInbox;
-    protected static string|UnitEnum|null $navigationGroup = 'Repo';
-    protected static ?string $modelLabel = 'Container';
-    protected static ?int $navigationSort = 1;
 
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedInbox;
+
+    protected static string|UnitEnum|null $navigationGroup = 'Repo';
+
+    protected static ?string $modelLabel = 'Container';
+
+    protected static ?int $navigationSort = 1;
 
     public static function form(Schema $schema): Schema
     {

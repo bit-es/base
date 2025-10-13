@@ -3,7 +3,6 @@
 namespace Bites\Erp\Enums;
 
 use Filament\Support\Contracts\HasDescription;
-use Filament\Support\Contracts\HasLabel;
 
 enum CostElementType: string implements HasDescription
 {
@@ -18,6 +17,7 @@ enum CostElementType: string implements HasDescription
     case SecondarySettlement = 'secondary_settlement';
     case SecondaryOverhead = 'secondary_overhead';
     case Statistical = 'statistical';
+
     public function getDescription(): ?string
     {
         return match ($this) {
@@ -35,4 +35,3 @@ enum CostElementType: string implements HasDescription
         };
     }
 }
-

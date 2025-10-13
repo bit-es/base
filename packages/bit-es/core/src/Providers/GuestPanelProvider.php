@@ -57,4 +57,3 @@ class GuestPanelProvider extends PanelProvider
             ]);
     }
 }
-

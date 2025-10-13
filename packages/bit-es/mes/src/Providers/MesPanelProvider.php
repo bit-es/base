@@ -38,7 +38,7 @@ class MesPanelProvider extends PanelProvider
                 \Bites\Mes\Resources\ProductionOrders\ProductionOrderResource::class,
                 \Bites\Mes\Resources\ProductionLogs\ProductionLogResource::class,
                 \Bites\Mes\Resources\WorkCenters\WorkCenterResource::class,
-            ])            
+            ])
             ->discoverPages(in: app_path('Filament/Mes/Pages'), for: 'App\Filament\Mes\Pages')
             ->pages([
                 Dashboard::class,
@@ -64,4 +64,3 @@ class MesPanelProvider extends PanelProvider
             ]);
     }
 }
-

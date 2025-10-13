@@ -2,8 +2,8 @@
 
 namespace Bites\Core\Resources\Classifies\Schemas;
 
+use Filament\Forms;
 use Filament\Schemas\Schema;
-use Filament\Forms;  
 
 class ClassifyForm
 {
@@ -12,15 +12,15 @@ class ClassifyForm
         return $schema
             ->components([
 
-            Forms\Components\TextInput::make('name')->required(),
-            Forms\Components\Select::make('parent_id')
-                ->relationship('parent', 'name')
-                ->nullable(),
-            Forms\Components\MorphToSelect::make('classifiable')
-                ->types([
-                    Forms\Components\MorphToSelect\Type::make('model')->label('Model'),
-                ]),
-        ]);
+                Forms\Components\TextInput::make('name')->required(),
+                Forms\Components\Select::make('parent_id')
+                    ->relationship('parent', 'name')
+                    ->nullable(),
+                Forms\Components\MorphToSelect::make('classifiable')
+                    ->types([
+                        Forms\Components\MorphToSelect\Type::make('model')->label('Model'),
+                    ]),
+            ]);
 
     }
 }

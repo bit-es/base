@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     public function up(): void
     {
         // Schema::create('c_pcfs', function (Blueprint $table) {
@@ -56,7 +57,7 @@ return new class extends Migration {
             $table->foreignId('turtle_id')->constrained('c_turtles')->cascadeOnDelete();
             $table->string('name');
             // $table->string('category')->nullable();
-            //$table->string('sub_category')->nullable();
+            // $table->string('sub_category')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });

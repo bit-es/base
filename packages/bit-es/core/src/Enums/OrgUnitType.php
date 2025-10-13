@@ -8,31 +8,3 @@ enum OrgUnitType: string
     case Department = 'Department';
     case Team = 'Team';
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

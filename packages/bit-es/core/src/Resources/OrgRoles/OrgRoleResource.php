@@ -2,25 +2,28 @@
 
 namespace Bites\Core\Resources\OrgRoles;
 
+use BackedEnum;
+use Bites\Core\Models\OrgRole;
 use Bites\Core\Resources\OrgRoles\Pages\CreateOrgRole;
 use Bites\Core\Resources\OrgRoles\Pages\EditOrgRole;
 use Bites\Core\Resources\OrgRoles\Pages\ListOrgRoles;
 use Bites\Core\Resources\OrgRoles\Schemas\OrgRoleForm;
 use Bites\Core\Resources\OrgRoles\Tables\OrgRolesTable;
-use Bites\Core\Models\OrgRole;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
 
 class OrgRoleResource extends Resource
 {
     protected static ?string $model = OrgRole::class;
+
     protected static string|BackedEnum|null $navigationIcon = ('myicon-c-orgrole');
+
     protected static string|UnitEnum|null $navigationGroup = 'Organization Structure';
+
     protected static ?string $modelLabel = 'Roles';
+
     protected static ?int $navigationSort = 5;
 
     public static function form(Schema $schema): Schema

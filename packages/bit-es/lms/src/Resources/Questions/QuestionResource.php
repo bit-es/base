@@ -2,13 +2,13 @@
 
 namespace Bites\Lms\Resources\Questions;
 
+use BackedEnum;
+use Bites\Lms\Models\Question;
 use Bites\Lms\Resources\Questions\Pages\CreateQuestion;
 use Bites\Lms\Resources\Questions\Pages\EditQuestion;
 use Bites\Lms\Resources\Questions\Pages\ListQuestions;
 use Bites\Lms\Resources\Questions\Schemas\QuestionForm;
 use Bites\Lms\Resources\Questions\Tables\QuestionsTable;
-use Bites\Lms\Models\Question;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +18,13 @@ use UnitEnum;
 class QuestionResource extends Resource
 {
     protected static ?string $model = Question::class;
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedQuestionMarkCircle;
+
     protected static string|UnitEnum|null $navigationGroup = 'Repository';
+
     protected static ?string $modelLabel = 'Questions';
+
     protected static ?int $navigationSort = 2;
 
     public static function form(Schema $schema): Schema

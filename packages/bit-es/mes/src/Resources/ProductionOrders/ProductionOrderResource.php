@@ -2,13 +2,13 @@
 
 namespace Bites\Mes\Resources\ProductionOrders;
 
+use BackedEnum;
+use Bites\Mes\Models\ProductionOrder;
 use Bites\Mes\Resources\ProductionOrders\Pages\CreateProductionOrder;
 use Bites\Mes\Resources\ProductionOrders\Pages\EditProductionOrder;
 use Bites\Mes\Resources\ProductionOrders\Pages\ListProductionOrders;
 use Bites\Mes\Resources\ProductionOrders\Schemas\ProductionOrderForm;
 use Bites\Mes\Resources\ProductionOrders\Tables\ProductionOrdersTable;
-use Bites\Mes\Models\ProductionOrder;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;

@@ -3,7 +3,6 @@
 namespace Bites\Dms\Enums;
 
 use Filament\Support\Contracts\HasDescription;
-use Filament\Support\Contracts\HasLabel;
 
 enum DocumentClassification: string implements HasDescription
 {

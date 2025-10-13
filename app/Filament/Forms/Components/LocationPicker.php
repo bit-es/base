@@ -8,7 +8,7 @@ class LocationPicker extends Field
 {
     // protected string $view = 'bites::file-upload';
     protected string $view = 'bites::location-picker';
-    
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -16,7 +16,7 @@ class LocationPicker extends Field
         $this->afterStateHydrated(function (LocationPicker $component, $state) {
             if (is_array($state)) {
                 $component->state($state);
-            } 
+            }
         });
 
         $this->dehydrateStateUsing(fn ($state) => $state);

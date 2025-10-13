@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 class BitesModel extends Command
 {
     protected $signature = 'bites:model {name} {space}';
+
     protected $description = 'Create a model with BitesModel trait, policy, Filament resource, and permissions';
 
     protected function generateFromStub(string $stubPath, array $replacements): string
@@ -17,6 +18,7 @@ class BitesModel extends Command
         foreach ($replacements as $key => $value) {
             $stub = str_replace("{{ {$key} }}", $value, $stub);
         }
+
         return $stub;
     }
 
@@ -27,16 +29,16 @@ class BitesModel extends Command
         $spacePath = str_replace(['\\', '/'], DIRECTORY_SEPARATOR, $space);
         $spaceNamespace = str_replace(DIRECTORY_SEPARATOR, '\\', $spacePath);
 
-        $isPackage = Str::startsWith($spacePath, 'packages' . DIRECTORY_SEPARATOR);
+        $isPackage = Str::startsWith($spacePath, 'packages'.DIRECTORY_SEPARATOR);
         $basePath = $isPackage ? base_path() : app_path();
-dump($name, $space, $spacePath, $spaceNamespace, $isPackage, $basePath);
-dump(base_path('stubs/bites-model.stub'));
+        dump($name, $space, $spacePath, $spaceNamespace, $isPackage, $basePath);
+        dump(base_path('stubs/bites-model.stub'));
         // Paths
         $modelPath = "{$basePath}/Models/{$spacePath}/{$name}.php";
         $policyPath = "{$basePath}/Policies/{$spacePath}/{$name}Policy.php";
         $resourcePath = "{$basePath}/Filament/Resources/{$spacePath}/{$name}Resource.php";
         $pagesPath = "{$basePath}/Filament/Resources/{$spacePath}/{$name}/Pages";
-dd($modelPath,  $policyPath, $resourcePath, $pagesPath);
+        dd($modelPath, $policyPath, $resourcePath, $pagesPath);
         // Ensure directories
         File::ensureDirectoryExists(dirname($modelPath));
         File::ensureDirectoryExists(dirname($policyPath));
@@ -44,7 +46,7 @@ dd($modelPath,  $policyPath, $resourcePath, $pagesPath);
         File::ensureDirectoryExists($pagesPath);
 
         // Create Model
-        if (!File::exists($modelPath)) {
+        if (! File::exists($modelPath)) {
             $modelContent = $this->generateFromStub(resource_path('stubs/bites-model.stub'), [
                 'name' => $name,
                 'namespace' => "App\\Models\\{$spaceNamespace}",
@@ -56,7 +58,7 @@ dd($modelPath,  $policyPath, $resourcePath, $pagesPath);
         }
 
         // Create Policy
-        if (!File::exists($policyPath)) {
+        if (! File::exists($policyPath)) {
             $policyContent = $this->generateFromStub(resource_path('stubs/bites-policy.stub'), [
                 'name' => $name,
                 'namespace' => "App\\Policies\\{$spaceNamespace}",
@@ -83,7 +85,7 @@ dd($modelPath,  $policyPath, $resourcePath, $pagesPath);
         // Create Pages
         foreach (['create-page', 'edit-page', 'list-page'] as $type) {
             $stubPath = resource_path("stubs/filament/{$type}.stub");
-            $pageName = ucfirst(Str::before($type, '-')) . $name;
+            $pageName = ucfirst(Str::before($type, '-')).$name;
             $pageContent = $this->generateFromStub($stubPath, [
                 'model' => $name,
                 'namespace' => "App\\Filament\\Resources\\{$spaceNamespace}\\{$name}\\Pages",
@@ -100,99 +102,7 @@ dd($modelPath,  $policyPath, $resourcePath, $pagesPath);
             }
             $this->info("Spatie permissions created for {$name}.");
         } catch (\Exception $e) {
-            $this->error("Failed to create permissions: " . $e->getMessage());
+            $this->error('Failed to create permissions: '.$e->getMessage());
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

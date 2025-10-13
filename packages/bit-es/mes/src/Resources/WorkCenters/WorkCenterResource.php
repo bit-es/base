@@ -2,13 +2,13 @@
 
 namespace Bites\Mes\Resources\WorkCenters;
 
+use BackedEnum;
+use Bites\Mes\Models\WorkCenter;
 use Bites\Mes\Resources\WorkCenters\Pages\CreateWorkCenter;
 use Bites\Mes\Resources\WorkCenters\Pages\EditWorkCenter;
 use Bites\Mes\Resources\WorkCenters\Pages\ListWorkCenters;
 use Bites\Mes\Resources\WorkCenters\Schemas\WorkCenterForm;
 use Bites\Mes\Resources\WorkCenters\Tables\WorkCentersTable;
-use Bites\Mes\Models\WorkCenter;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;

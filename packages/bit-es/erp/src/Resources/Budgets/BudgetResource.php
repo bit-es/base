@@ -2,13 +2,13 @@
 
 namespace Bites\Erp\Resources\Budgets;
 
+use BackedEnum;
+use Bites\Erp\Models\Budget;
 use Bites\Erp\Resources\Budgets\Pages\CreateBudget;
 use Bites\Erp\Resources\Budgets\Pages\EditBudget;
 use Bites\Erp\Resources\Budgets\Pages\ListBudgets;
 use Bites\Erp\Resources\Budgets\Schemas\BudgetForm;
 use Bites\Erp\Resources\Budgets\Tables\BudgetsTable;
-use Bites\Erp\Models\Budget;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +18,13 @@ use UnitEnum;
 class BudgetResource extends Resource
 {
     protected static ?string $model = Budget::class;
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedArrowsPointingIn;
+
     protected static string|UnitEnum|null $navigationGroup = 'Planning';
+
     protected static ?string $modelLabel = 'Budgets';
+
     protected static ?int $navigationSort = 1;
 
     public static function form(Schema $schema): Schema

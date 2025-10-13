@@ -1,14 +1,13 @@
 <?php
-namespace Bites\Core\Policies;
 
-use App\Models\User;
+namespace Bites\Core\Policies;
 
 class BitesPolicy
 {
     public function __call($method, $arguments)
     {
         [$user, $model] = $arguments;
-        $name = 'can' . ucfirst($method);
+        $name = 'can'.ucfirst($method);
 
         if (method_exists($model, $name)) {
             return $model->{$name}($user);
@@ -17,4 +16,3 @@ class BitesPolicy
         return false;
     }
 }
-

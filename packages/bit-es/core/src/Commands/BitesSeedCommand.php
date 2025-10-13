@@ -3,15 +3,16 @@
 namespace Bites\Core\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Model;
 
 class BitesSeedCommand extends Command
 {
     protected $signature = 'bites:seed {source} {--mode=update}';
+
     protected $description = 'Seed database from JSON file or URL into models, relations, and ext attributes';
 
     public function handle(): void
@@ -29,12 +30,14 @@ class BitesSeedCommand extends Command
         $json = json_decode($cleaned, true);
 
         if (json_last_error() !== JSON_ERROR_NONE) {
-            $this->error("Invalid JSON: " . json_last_error_msg());
+            $this->error('Invalid JSON: '.json_last_error_msg());
+
             return;
         }
 
-        if (!$json) {
-            $this->error("Invalid JSON");
+        if (! $json) {
+            $this->error('Invalid JSON');
+
             return;
         }
 
@@ -43,8 +46,9 @@ class BitesSeedCommand extends Command
         foreach ($json as $modelName => $records) {
             $class = $this->resolveModelClass($modelName, $namespaces);
 
-            if (!$class) {
+            if (! $class) {
                 $this->warn("Skipping unknown model: $modelName");
+
                 continue;
             }
 
@@ -55,28 +59,31 @@ class BitesSeedCommand extends Command
             $this->info("$modelName seeded!");
         }
 
-        $this->info("Seeding complete!");
+        $this->info('Seeding complete!');
     }
 
     protected function resolveModelClass(string $modelName, array $namespaces): ?string
     {
         foreach ($namespaces as $namespace) {
-            $candidate = $namespace . $modelName;
+            $candidate = $namespace.$modelName;
             if (class_exists($candidate)) {
                 return $candidate;
             }
         }
+
         return null;
     }
 
     protected function resolveMorphToClass(array $data): ?string
     {
         $type = $data['type'] ?? null;
-        if (!$type) return null;
+        if (! $type) {
+            return null;
+        }
 
         $namespaces = Config::get('bites.model_namespaces', []);
         foreach ($namespaces as $namespace) {
-            $candidate = $namespace . $type;
+            $candidate = $namespace.$type;
             if (class_exists($candidate)) {
                 return $candidate;
             }
@@ -123,7 +130,8 @@ class BitesSeedCommand extends Command
             $instance = $class::updateOrCreate($conditions, $coreData);
         } else {
             if ($conditions && $class::where($conditions)->exists()) {
-                $this->line("Skipped existing $class with " . json_encode($conditions));
+                $this->line("Skipped existing $class with ".json_encode($conditions));
+
                 return null;
             }
             $instance = $class::create($coreData);
@@ -143,8 +151,9 @@ class BitesSeedCommand extends Command
                 ? $this->resolveMorphToClass($items)
                 : get_class($rel->getModel());
 
-            if (!$relatedClass) {
+            if (! $relatedClass) {
                 $this->warn("Unable to resolve related class for relation: $relation");
+
                 continue;
             }
 
@@ -188,7 +197,7 @@ class BitesSeedCommand extends Command
 
     protected function isRelation(string $class, string $method): bool
     {
-        if (!method_exists($class, $method)) {
+        if (! method_exists($class, $method)) {
             return false;
         }
 

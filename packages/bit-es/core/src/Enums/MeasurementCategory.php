@@ -8,31 +8,3 @@ enum MeasurementCategory: string
     case Asset = 'Asset';
     case Other = 'Other';
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

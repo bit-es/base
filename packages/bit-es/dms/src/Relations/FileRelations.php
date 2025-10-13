@@ -8,14 +8,15 @@ use Filament\Forms;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
-use Filament\Support\Icons\Heroicon;
 
 class FileRelations extends RelationManager
 {
     protected static string $relationship = 'files';
+
     public static function getTabComponent(Model $ownerRecord, string $pageClass): Tab
     {
         // dd($ownerRecord, $pageClass);

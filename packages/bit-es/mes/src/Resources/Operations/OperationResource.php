@@ -2,13 +2,13 @@
 
 namespace Bites\Mes\Resources\Operations;
 
+use BackedEnum;
+use Bites\Mes\Models\Operation;
 use Bites\Mes\Resources\Operations\Pages\CreateOperation;
 use Bites\Mes\Resources\Operations\Pages\EditOperation;
 use Bites\Mes\Resources\Operations\Pages\ListOperations;
 use Bites\Mes\Resources\Operations\Schemas\OperationForm;
 use Bites\Mes\Resources\Operations\Tables\OperationsTable;
-use Bites\Mes\Models\Operation;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;

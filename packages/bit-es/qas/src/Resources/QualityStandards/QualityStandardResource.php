@@ -2,13 +2,13 @@
 
 namespace Bites\Qas\Resources\QualityStandards;
 
+use BackedEnum;
+use Bites\Qas\Models\QualityStandard;
 use Bites\Qas\Resources\QualityStandards\Pages\CreateQualityStandard;
 use Bites\Qas\Resources\QualityStandards\Pages\EditQualityStandard;
 use Bites\Qas\Resources\QualityStandards\Pages\ListQualityStandards;
 use Bites\Qas\Resources\QualityStandards\Schemas\QualityStandardForm;
 use Bites\Qas\Resources\QualityStandards\Tables\QualityStandardsTable;
-use Bites\Qas\Models\QualityStandard;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;

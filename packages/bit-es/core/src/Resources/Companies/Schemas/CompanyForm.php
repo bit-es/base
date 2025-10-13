@@ -2,9 +2,9 @@
 
 namespace Bites\Core\Resources\Companies\Schemas;
 
-use Filament\Schemas\Schema;
 use App\Filament\Forms\Components\LocationPicker;
 use Filament\Forms\Components\FileUpload;
+use Filament\Schemas\Schema;
 
 class CompanyForm
 {
@@ -15,11 +15,11 @@ class CompanyForm
                 LocationPicker::make('location')
                     ->label('Location')
                     ->required(),
-\Bites\Core\Field\SnapPic::make('logo')
+                \Bites\Core\Field\SnapPic::make('logo')
                     ->label('Company Logo')
                     ->required(),
 
-                FileUpload::make('attachment')
+                FileUpload::make('attachment'),
             ]);
     }
 }

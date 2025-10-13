@@ -9,30 +9,3 @@ enum LocationType: string
     case WorkCenter = 'WorkCenter';
     case WorkUnit = 'WorkUnit';
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

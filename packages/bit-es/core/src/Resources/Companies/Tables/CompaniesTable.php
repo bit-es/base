@@ -5,8 +5,8 @@ namespace Bites\Core\Resources\Companies\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Tables\Table;
 use Filament\Tables\Columns;
+use Filament\Tables\Table;
 
 class CompaniesTable
 {
@@ -18,7 +18,7 @@ class CompaniesTable
                 Columns\TextColumn::make('code'),
                 Columns\TextColumn::make('description'),
                 Columns\CheckboxColumn::make('isCustomer'),
-                Columns\CheckboxColumn::make('isSupplier')
+                Columns\CheckboxColumn::make('isSupplier'),
             ])
             ->filters([
                 //

@@ -14,25 +14,3 @@ enum MeasurementInputType: string
     case Slider = 'Slider';
     case ScanCode = 'ScanCode';
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,4 +1,5 @@
 <?php
+
 namespace Bites\Core\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -8,89 +9,15 @@ class Property extends Model
 {
     protected $table = 'u_properties';
 
-    protected $fillable = ['propertable_type','propertable_id','setting_id','key','value'];
-    public function propertable(): MorphTo { return $this->morphTo(); }
-    public function setting() { return $this->belongsTo(Setting::class); }
+    protected $fillable = ['propertable_type', 'propertable_id', 'setting_id', 'key', 'value'];
+
+    public function propertable(): MorphTo
+    {
+        return $this->morphTo();
+    }
+
+    public function setting()
+    {
+        return $this->belongsTo(Setting::class);
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -3,26 +3,18 @@
 namespace Bites\Dms;
 
 use Bites\Dms\Filament\Resources;
-use Filament\Facades\Filament;
 use Illuminate\Support\ServiceProvider;
-
-
-
 
 class DmsServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
         // dump('DmsServiceProvider booted');
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadViewsFrom(__DIR__ . '/../resources/views', 'bites');
 
-
-
-
-
-
     }
+
     public function register()
     {
         // dump('DmsServiceProvider registered');
@@ -34,32 +26,3 @@ class DmsServiceProvider extends ServiceProvider
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

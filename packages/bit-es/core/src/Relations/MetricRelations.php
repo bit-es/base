@@ -2,17 +2,15 @@
 
 namespace Bites\Core\Relations;
 
+use App\Services\FormSchemaFactory;
+use Bites\Core\Models\Setting;
 use Filament\Actions\CreateAction;
-use Filament\Forms\Components\Select;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Table;
+use Filament\Tables\Table; // adjust namespace if needed
 use Illuminate\Database\Eloquent\Model;
-use Bites\Core\Models\Setting; // adjust namespace if needed
-use Bites\Core\Resources\Settings\Schemas\RelationsForm;
-use App\Services\FormSchemaFactory;
 
 class MetricRelations extends RelationManager
 {
@@ -29,7 +27,8 @@ class MetricRelations extends RelationManager
     public function form(Schema $schema): Schema
     {
 
-        $json = json_decode($this->jsondata); 
+        $json = json_decode($this->jsondata);
+
         return $schema->components([(FormSchemaFactory::fromJson($json))]);
     }
 

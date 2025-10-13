@@ -15,10 +15,14 @@ use UnitEnum;
 class AssetResource extends Resource
 {
     protected static ?string $model = Asset::class;
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCube;
-    //protected static string|UnitEnum|null $navigationGroup = '';
+
+    // protected static string|UnitEnum|null $navigationGroup = '';
     protected static ?string $modelLabel = 'Assets & Equipments';
+
     protected static ?int $navigationSort = 1;
+
     public static function form(Schema $schema): Schema
     {
         return AssetForm::configure($schema);

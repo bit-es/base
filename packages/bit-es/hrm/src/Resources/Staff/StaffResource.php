@@ -2,24 +2,29 @@
 
 namespace Bites\Hrm\Resources\Staff;
 
+use BackedEnum;
+use Bites\Hrm\Models\Staff;
 use Bites\Hrm\Resources\Staff\Pages\CreateStaff;
 use Bites\Hrm\Resources\Staff\Pages\EditStaff;
 use Bites\Hrm\Resources\Staff\Pages\ListStaff;
 use Bites\Hrm\Resources\Staff\Schemas\StaffForm;
 use Bites\Hrm\Resources\Staff\Tables\StaffTable;
-use Bites\Hrm\Models\Staff;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
+
 class StaffResource extends Resource
 {
     protected static ?string $model = Staff::class;
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUserCircle;
+
     protected static string|UnitEnum|null $navigationGroup = 'Records';
+
     protected static ?string $modelLabel = 'Staff';
+
     protected static ?int $navigationSort = 1;
 
     public static function form(Schema $schema): Schema

@@ -2,13 +2,13 @@
 
 namespace Bites\Qas\Resources\Inspections;
 
+use BackedEnum;
+use Bites\Qas\Models\Inspection;
 use Bites\Qas\Resources\Inspections\Pages\CreateInspection;
 use Bites\Qas\Resources\Inspections\Pages\EditInspection;
 use Bites\Qas\Resources\Inspections\Pages\ListInspections;
 use Bites\Qas\Resources\Inspections\Schemas\InspectionForm;
 use Bites\Qas\Resources\Inspections\Tables\InspectionsTable;
-use Bites\Qas\Models\Inspection;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;

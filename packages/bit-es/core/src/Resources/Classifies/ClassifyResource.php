@@ -2,13 +2,13 @@
 
 namespace Bites\Core\Resources\Classifies;
 
+use BackedEnum;
+use Bites\Core\Models\Classify;
 use Bites\Core\Resources\Classifies\Pages\CreateClassify;
 use Bites\Core\Resources\Classifies\Pages\EditClassify;
 use Bites\Core\Resources\Classifies\Pages\ListClassifies;
 use Bites\Core\Resources\Classifies\Schemas\ClassifyForm;
 use Bites\Core\Resources\Classifies\Tables\ClassifiesTable;
-use Bites\Core\Models\Classify;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +18,13 @@ use UnitEnum;
 class ClassifyResource extends Resource
 {
     protected static ?string $model = Classify::class;
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedTag;
+
     protected static string|UnitEnum|null $navigationGroup = 'Configuration';
+
     protected static ?string $modelLabel = 'Classifications';
+
     protected static ?int $navigationSort = 1;
 
     public static function form(Schema $schema): Schema

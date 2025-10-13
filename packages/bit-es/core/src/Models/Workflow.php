@@ -7,15 +7,31 @@ use Illuminate\Database\Eloquent\Model;
 class Workflow extends Model
 {
     use \Bites\Core\Traits\BitesModel, \Bites\Core\Traits\HasCategories;
-    
-    protected $table = 'c_workflows';
-    protected $guarded = [];
-    
-    public function turtle() { return $this->belongsTo(Turtle::class, 'id'); }
 
-    public function states() { return $this->hasMany(WorkflowState::class); }
-    public function transitions() { return $this->hasMany(WorkflowTransition::class); }
-    public function requests() { return $this->hasMany(Request::class); }
+    protected $table = 'c_workflows';
+
+    protected $guarded = [];
+
+    public function turtle()
+    {
+        return $this->belongsTo(Turtle::class, 'id');
+    }
+
+    public function states()
+    {
+        return $this->hasMany(WorkflowState::class);
+    }
+
+    public function transitions()
+    {
+        return $this->hasMany(WorkflowTransition::class);
+    }
+
+    public function requests()
+    {
+        return $this->hasMany(Request::class);
+    }
+
     public static function resolveAndCreate(array $data): self
     {
         $categoryData = $data['category'] ?? null;
@@ -29,76 +45,3 @@ class Workflow extends Model
         return $workflow;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

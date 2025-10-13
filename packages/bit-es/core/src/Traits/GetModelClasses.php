@@ -12,7 +12,7 @@ trait GetModelClasses
         );
 
         foreach ($namespaces as $namespace) {
-            $class = $namespace . $modelName;
+            $class = $namespace.$modelName;
             if (class_exists($class)) {
                 return $class;
             }
@@ -48,73 +48,3 @@ trait GetModelClasses
         return $namespaces;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

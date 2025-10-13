@@ -4,7 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration { // packages core spatie_permission_tables
+return new class extends Migration
+{
+    // packages core spatie_permission_tables
     /**
      * Run the migrations.
      */
@@ -141,4 +143,3 @@ return new class extends Migration { // packages core spatie_permission_tables
         Schema::drop($tableNames['permissions']);
     }
 };
-

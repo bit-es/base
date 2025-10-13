@@ -2,6 +2,8 @@
 
 namespace App\Core\Relations;
 
+use App\Services\FormSchemaFactory;
+use Bites\Core\Models\Setting;
 use Filament\Actions\CreateAction;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Components\Tabs\Tab;
@@ -9,8 +11,6 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
-use App\Services\FormSchemaFactory;
-use Bites\Core\Models\Setting;
 
 class EventRelations extends RelationManager
 {
@@ -24,6 +24,7 @@ class EventRelations extends RelationManager
     public function form(Schema $schema): Schema
     {
         $json = json_decode(Setting::where('key', 'event_schema')->value('value'), true);
+
         return $schema->components(FormSchemaFactory::fromJson($json));
     }
 

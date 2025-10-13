@@ -2,13 +2,13 @@
 
 namespace Bites\Mes\Resources\Materials;
 
+use BackedEnum;
+use Bites\Mes\Models\Material;
 use Bites\Mes\Resources\Materials\Pages\CreateMaterial;
 use Bites\Mes\Resources\Materials\Pages\EditMaterial;
 use Bites\Mes\Resources\Materials\Pages\ListMaterials;
 use Bites\Mes\Resources\Materials\Schemas\MaterialForm;
 use Bites\Mes\Resources\Materials\Tables\MaterialsTable;
-use Bites\Mes\Models\Material;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;

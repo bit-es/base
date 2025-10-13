@@ -2,17 +2,17 @@
 
 namespace App\Services;
 
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\RadioGroup;
 use Filament\Forms\Components\CheckboxList;
-use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RadioGroup;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TagsInput;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\TimePicker;
+use Filament\Forms\Components\Toggle;
 
 class FormSchemaFactory
 {
@@ -105,7 +105,7 @@ class FormSchemaFactory
                         ->required($required);
                     break;
 
-                // Add more cases as needed
+                    // Add more cases as needed
             }
         }
 
