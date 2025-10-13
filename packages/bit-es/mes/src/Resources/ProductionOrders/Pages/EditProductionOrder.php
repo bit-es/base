@@ -1,0 +1,19 @@
+<?php
+
+namespace Bites\Mes\Resources\ProductionOrders\Pages;
+
+use Bites\Mes\Resources\ProductionOrders\ProductionOrderResource;
+use Filament\Actions\DeleteAction;
+use Filament\Resources\Pages\EditRecord;
+
+class EditProductionOrder extends EditRecord
+{
+    protected static string $resource = ProductionOrderResource::class;
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            DeleteAction::make(),
+        ];
+    }
+}

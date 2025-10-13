@@ -1,0 +1,104 @@
+{
+    "name": "bit-es/qas",
+    "description": "This is bites package on  Quality Management System",
+    "keywords": [
+        "bit-es",
+        "qas",
+        "laravel",
+        "filament"
+    ],
+
+
+
+    "homepage": "https://github.com/bit-es/qas",
+    "support": {
+        "issues": "https://github.com/bit-es/qas/issues",
+        "source": "https://github.com/bit-es/qas"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "bit-es",
+            "email": "bit.ecosystem@gmail.com",
+            "role": "Developer"
+        }
+    ],
+
+
+    "require": {
+        "php": "^8.2",
+        "bit-es/core": "dev-main",
+        "filament/filament": "^4.0"
+    },
+
+
+
+
+
+    "require-dev": {
+        "nunomaduro/collision": "^8.6",
+        "pestphp/pest": "^3.7",
+        "pestphp/pest-plugin-laravel": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bites\\Qas\\": "src/"
+        }
+    },
+
+
+
+
+
+    "scripts": {
+        "post-autoload-dump": [
+            "@php artisan migrate"
+
+
+        ],
+
+
+
+
+
+
+        "post-update-cmd": [],
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage"
+    },
+
+
+
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+
+
+
+
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Bites\\Qas\\QasServiceProvider",
+                "Bites\\Qas\\Providers\\QasPanelProvider"
+
+
+
+            ],
+            "aliases": {
+                "Qas": "Bites\\Qas\\Facades\\Qas"
+
+
+
+
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
+

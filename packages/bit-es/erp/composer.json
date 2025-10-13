@@ -1,0 +1,104 @@
+{
+    "name": "bit-es/erp",
+    "description": "This is bites package on Enterprise Resource Planning System",
+    "keywords": [
+        "bit-es",
+        "erp",
+        "laravel",
+        "filament"
+    ],
+
+
+
+    "homepage": "https://github.com/bit-es/erp",
+    "support": {
+        "issues": "https://github.com/bit-es/erp/issues",
+        "source": "https://github.com/bit-es/erp"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "bit-es",
+            "email": "bit.ecosystem@gmail.com",
+            "role": "Developer"
+        }
+    ],
+
+
+    "require": {
+        "php": "^8.2",
+        "bit-es/core": "dev-main",
+        "filament/filament": "^4.0"
+    },
+
+
+
+
+
+    "require-dev": {
+        "nunomaduro/collision": "^8.6",
+        "pestphp/pest": "^3.7",
+        "pestphp/pest-plugin-laravel": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bites\\Erp\\": "src/"
+        }
+    },
+
+
+
+
+
+    "scripts": {
+        "post-autoload-dump": [
+            "@php artisan migrate"
+
+
+        ],
+
+
+
+
+
+
+        "post-update-cmd": [],
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage"
+    },
+
+
+
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+
+
+
+
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Bites\\Erp\\ErpServiceProvider",
+                "Bites\\Erp\\Providers\\ErpPanelProvider"
+
+
+
+            ],
+            "aliases": {
+                "Erp": "Bites\\Erp\\Facades\\Erp"
+
+
+
+
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
+

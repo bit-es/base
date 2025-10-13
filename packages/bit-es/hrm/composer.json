@@ -1,0 +1,104 @@
+{
+    "name": "bit-es/hrm",
+    "description": "This is bites package on Human Resource Management System",
+    "keywords": [
+        "bit-es",
+        "hrm",
+        "laravel",
+        "filament"
+    ],
+
+
+
+    "homepage": "https://github.com/bit-es/hrm",
+    "support": {
+        "issues": "https://github.com/bit-es/hrm/issues",
+        "source": "https://github.com/bit-es/hrm"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "bit-es",
+            "email": "bit.ecosystem@gmail.com",
+            "role": "Developer"
+        }
+    ],
+
+
+    "require": {
+        "php": "^8.2",
+        "bit-es/core": "dev-main",
+        "filament/filament": "^4.0"
+    },
+
+
+
+
+
+    "require-dev": {
+        "nunomaduro/collision": "^8.6",
+        "pestphp/pest": "^3.7",
+        "pestphp/pest-plugin-laravel": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bites\\Hrm\\": "src/"
+        }
+    },
+
+
+
+
+
+    "scripts": {
+        "post-autoload-dump": [
+            "@php artisan migrate"
+
+
+        ],
+
+
+
+
+
+
+        "post-update-cmd": [],
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage"
+    },
+
+
+
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+
+
+
+
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Bites\\Hrm\\HrmServiceProvider",
+                "Bites\\Hrm\\Providers\\HrmPanelProvider"
+
+
+
+            ],
+            "aliases": {
+                "Hrm": "Bites\\Hrm\\Facades\\Hrm"
+
+
+
+
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
+

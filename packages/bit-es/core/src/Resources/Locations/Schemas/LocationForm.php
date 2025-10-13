@@ -1,0 +1,16 @@
+<?php
+
+namespace Bites\Core\Resources\Locations\Schemas;
+
+use Filament\Schemas\Schema;
+
+class LocationForm
+{
+    public static function configure(Schema $schema): Schema
+    {
+        return $schema
+            ->components([
+                //
+            ]);
+    }
+}
