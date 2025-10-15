@@ -13,8 +13,7 @@
 @endphp
 
 <x-filament::icon-button icon="myicon-p-lobby" href="{{ route('filament.lobby.pages.dashboard') }}" tag="a"
-    color="{{ $currentRoute == 'filament.lobby.pages.dashboard' ? 'primary' : 'gray' }}"
-    tooltip="{{ __('Lobby') }}" />
+    color="{{ $currentRoute == 'filament.lobby.pages.dashboard' ? 'primary' : 'gray' }}" tooltip="{{ __('Lobby') }}" />
 <x-filament::icon-button icon="myicon-p-home" href="{{ route('filament.staff.pages.dashboard') }}" tag="a"
     color="{{ $currentRoute == 'filament.staff.pages.dashboard' ? 'primary' : 'gray' }}"
     tooltip="{{ __('Staff Portal') }}" />
@@ -33,3 +32,9 @@
 <x-filament::icon-button icon="myicon-p-lms" href="{{ route('filament.lms.pages.dashboard') }}" tag="a"
     color="{{ $currentRoute == 'filament.lms.pages.dashboard' ? 'primary' : 'gray' }}"
     tooltip="{{ __('LMS Panel') }}" />
+<x-filament::icon-button icon="myicon-p-mes" href="{{ route('filament.mes.pages.dashboard') }}" tag="a"
+    color="{{ $currentRoute == 'filament.mes.pages.dashboard' ? 'primary' : 'gray' }}"
+    tooltip="{{ __('MES Panel') }}" />
+<x-filament::icon-button icon="myicon-p-qas" href="{{ route('filament.qas.pages.dashboard') }}" tag="a"
+    color="{{ $currentRoute == 'filament.qas.pages.dashboard' ? 'primary' : 'gray' }}"
+    tooltip="{{ __('QAS Panel') }}" />

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('continuous_improvement_methodologies', function (Blueprint $table) {
+        Schema::create('q_methodologies', function (Blueprint $table) {
             $table->id();
             $table->string('methodology')->unique();
             $table->string('purpose')->nullable();
@@ -19,9 +19,9 @@ return new class extends Migration {
             $table->string('external_url')->nullable();
             $table->timestamps();
         });
-Schema::create('continuous_improvement_runs', function (Blueprint $table) {
+        Schema::create('q_initiatives', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('methodology_id')->constrained('continuous_improvement_methodologies')->cascadeOnDelete();
+            $table->foreignId('methodology_id')->constrained('q_methodologies')->cascadeOnDelete();
             $table->foreignId('initiator_id')->nullable()->constrained('users')->nullOnDelete();
             $table->string('title');
             $table->text('description')->nullable();
@@ -36,7 +36,7 @@ Schema::create('continuous_improvement_runs', function (Blueprint $table) {
 
     public function down(): void
     {
-        Schema::dropIfExists('continuous_improvement_methodologies');
-Schema::dropIfExists('continuous_improvement_runs');
+        Schema::dropIfExists('q_methodologies');
+        Schema::dropIfExists('q_initiatives');
     }
 };

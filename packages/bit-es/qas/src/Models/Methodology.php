@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Models;
+namespace Bites\Qas\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Methodology extends Model
 {
+    protected $table = 'q_methodologies';
     protected $fillable = [
         'methodology',
         'purpose',
@@ -20,6 +21,6 @@ class Methodology extends Model
 
     public function runs(): HasMany
     {
-        return $this->hasMany(ContinuousImprovementRun::class, 'methodology_id');
+        return $this->hasMany(RunInitiative::class, 'methodology_id');
     }
 }

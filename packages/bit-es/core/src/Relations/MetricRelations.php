@@ -16,7 +16,7 @@ class MetricRelations extends RelationManager
 {
     protected static string $relationship = 'metrics';
 
-    protected $jsondata = Setting::where('key', 'metric_schema')->value('value');
+    // protected $jsondata = Setting::where('key', 'metric_schema')->value('value');
 
     public static function getTabComponent(Model $ownerRecord, string $pageClass): Tab
     {
