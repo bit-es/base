@@ -3,23 +3,26 @@
 Comprehensive reference for all database tables across **Core**, **DMS**, **EAM**, **HRM**, and **LMS** cluster of panels.  
 Each section summarizes table purpose, key relationships, and system usage.
 
+🤝🏠📖🚜🧩👥🎓▶✅✒🛟🔗
+
 ## 🧭 Usage Summary
 
 | Panel | Core Focus | Key Benefits |
 |--------|-------------|---------------|
-| **Core** | Universal structure and workflow logic | Unified identity, process, and property base. Base entries of User, Staff, Job Position, Asset, Organization, Process |
-| **Staff** | Home for all staff | Task to do, Request via Staff Self Service, Inquire/Ask via Chat |
-| **DMS** | Controlled document lifecycle | Compliance with ISO 9001 / IATF requirements, Classification of documents (containerize), Vector DB for AI. |
-| **EAM** | Asset tracking and maintenance | Equipment performance and reliability insights. |
-| **ERP** | Cost Center | Org Units maintains cost structure to valuable resources |
-| **HRM** | Staff, job, and competency management | HRIS + ISA-95 alignment for skill governance. |
-| **LMS** | Learning and certification | Continuous training and compliance management. Outputs certs |
-| **MES** | Execution of manufacturing processes | Work tracking from raw to finished goods. Outputs OEE, |
-| **QAS** | Tools, Methods and Techniques for Continuous Improvement | List, and running of improvement initiatives. Outputs tasks and reports |
+| ✒ **Core** | Universal structure and workflow logic | Unified identity, process, and property base. Base entries of User, Staff, Job Position, Asset, Organization, Process |
+| 🏠 **Staff** | Home for all staff | Task to do, Request via Staff Self Service, Inquire/Ask via Chat |
+| 📖 **DMS** | Controlled document lifecycle | Compliance with ISO 9001 / IATF requirements, Classification of documents (containerize), Vector DB for AI. |
+| 🚜 **EAM** | Asset tracking and maintenance | Equipment performance and reliability insights. |
+| 🧩 **ERP** | Cost Center | Org Units maintains cost structure to valuable resources |
+| 👥 **HRM** | Staff, job, and competency management | HRIS + ISA-95 alignment for skill governance. |
+| 🎓 **LMS** | Learning and certification | Continuous training and compliance management. Outputs certs |
+| ▶ **MES** | Execution of manufacturing processes | Work tracking from raw to finished goods. Outputs OEE, |
+| ✅ **QAS** | Tools, Methods and Techniques for Continuous Improvement | List, and running of improvement initiatives. Outputs tasks and reports |
+| 🤝 **Lobby** | Lobby for all users | Career, RFQ & Tender (for supplier), Orders & WIP (for customer) |
 
 ---
 
-## 🧩 Core Panel
+## ✒ Core Panel
 
 | Table | Purpose | Key Relations | Usage |
 |--------|----------|----------------|--------|
@@ -44,7 +47,7 @@ Each section summarizes table purpose, key relationships, and system usage.
 
 ---
 
-## 📄 Document Management (DMS) Panel
+## 📖 Document Management (DMS) Panel
 
 | Table | Purpose | Key Relations | Usage |
 |--------|----------|----------------|--------|
@@ -57,7 +60,7 @@ Each section summarizes table purpose, key relationships, and system usage.
 
 ---
 
-## 🏭 Enterprise Asset Management (EAM) Panel
+## 🚜 Enterprise Asset Management (EAM) Panel
 
 | Table | Purpose | Key Relations | Usage |
 |--------|----------|----------------|--------|
