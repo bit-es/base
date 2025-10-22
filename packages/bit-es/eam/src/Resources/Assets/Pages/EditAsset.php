@@ -4,6 +4,7 @@ namespace Bites\Eam\Resources\Assets\Pages;
 
 use Bites\Eam\Resources\Assets\AssetResource;
 use Filament\Actions\DeleteAction;
+use Filament\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
 
 class EditAsset extends EditRecord
@@ -13,6 +14,7 @@ class EditAsset extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
+            ViewAction::make(),
             DeleteAction::make(),
         ];
     }

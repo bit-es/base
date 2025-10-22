@@ -5,18 +5,22 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ContinuousImprovementMethodologyResource\Pages;
 use App\Models\ContinuousImprovementMethodology;
 use Filament\Forms;
-use Filament\Tables;
-use Filament\Resources\Resource;
 use Filament\Forms\Form;
-use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Tables;
 use Filament\Tables\Filters\TernaryFilter;
+use Filament\Tables\Table;
 
 class ContinuousImprovementMethodologyResource extends Resource
 {
     protected static ?string $model = ContinuousImprovementMethodology::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-light-bulb';
+
     protected static ?string $navigationGroup = 'Continuous Improvement';
+
     protected static ?string $navigationLabel = 'CI Methodologies';
+
     protected static ?string $slug = 'ci-methodologies';
 
     public static function form(Form $form): Form

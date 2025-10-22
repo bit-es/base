@@ -2,8 +2,9 @@
 
 namespace Bites\Eam\Resources\Assets\Schemas;
 
-use Bites\Core\Field;
-use Filament\Forms\Components;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
 class AssetForm
@@ -12,23 +13,23 @@ class AssetForm
     {
         return $schema
             ->components([
-                Field\ScanCode::make('name')
+                TextInput::make('asset_tag')
                     ->required(),
-                Components\TextInput::make('unique_id')
+                TextInput::make('name'),
+                TextInput::make('description')
                     ->required(),
-                // Components\FileUpload::make('image')
-                //     ->image(),
-                // Field\SnapPic::make('camera_test')
-                //     ->label('Camera Test')
-                //     ->disk('public')
-                //     ->directory('uploads/services/payment_receipts_proof')
-                //     ->visibility('public')
-                //     ->useModal(true)
-                //     ->showCameraSelector(true)
-                //     ->aspect('16:9')
-                //     ->imageQuality(80)
-                //     ->shouldDeleteOnEdit(false)
-
+                TextInput::make('home_location_id')
+                    ->numeric(),
+                TextInput::make('serialnum'),
+                TextInput::make('modelnum'),
+                Select::make('asset_type_id')
+                    ->relationship('assetType', 'name'),
+                TextInput::make('parent_id')
+                    ->numeric(),
+                DatePicker::make('commissioned_at'),
+                DatePicker::make('disposed_at'),
+                TextInput::make('status')
+                    ->required(),
             ]);
     }
 }

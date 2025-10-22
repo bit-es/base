@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Methodology extends Model
 {
     protected $table = 'q_methodologies';
+
     protected $fillable = [
         'methodology',
         'purpose',

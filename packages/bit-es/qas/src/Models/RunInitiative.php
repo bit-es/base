@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class RunInitiative extends Model
 {
     protected $table = 'q_initiatives';
-    
+
     protected $fillable = [
         'methodology_id',
         'initiator_id',

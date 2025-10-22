@@ -18,7 +18,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-
+use Filament\Pages\Enums\SubNavigationPosition;
 class EamPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
@@ -34,18 +34,22 @@ class EamPanelProvider extends PanelProvider
             ->discoverResources(in: app_path('Filament/Eam/Resources'), for: 'App\Filament\Eam\Resources')
             ->resources([
                 \Bites\Eam\Resources\Assets\AssetResource::class,
-                \Bites\Eam\Resources\MaintenancePlans\MaintenancePlanResource::class,
-                \Bites\Eam\Resources\MaintenanceRecords\MaintenanceRecordResource::class,
-                \Bites\Eam\Resources\SpareParts\SparePartResource::class,
+                \Bites\Eam\Resources\AssetTypes\AssetTypeResource::class,
+                \Bites\Eam\Resources\Contracts\ContractResource::class,
+                \Bites\Eam\Resources\InventoryItems\InventoryItemResource::class,
+                \Bites\Eam\Resources\JobPlans\JobPlanResource::class,
+                \Bites\Eam\Resources\PurchaseOrders\PurchaseOrderResource::class,
+                \Bites\Eam\Resources\WorkOrders\WorkOrderResource::class,
             ])
             ->discoverPages(in: app_path('Filament/Eam/Pages'), for: 'App\Filament\Eam\Pages')
             ->pages([
                 Dashboard::class,
             ])
+            // ->topNavigation()
             ->discoverWidgets(in: app_path('Filament/Eam/Widgets'), for: 'App\Filament\Eam\Widgets')
             ->widgets([
-                AccountWidget::class,
-                FilamentInfoWidget::class,
+                // AccountWidget::class,
+                // FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,

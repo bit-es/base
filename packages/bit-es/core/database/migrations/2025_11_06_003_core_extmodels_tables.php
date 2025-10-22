@@ -16,21 +16,6 @@ return new class extends Migration // packages core core_extmodels_tables
             $table->morphs('classifiable');
             $table->timestamps();
         });
-
-        Schema::create('c_categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->foreignId('parent_id')->nullable()->constrained('c_categories')->cascadeOnDelete();
-            $table->string('type')->nullable();
-            $table->timestamps();
-        });
-        Schema::create('categorizables', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('category_id')->constrained('c_categories')->cascadeOnDelete();
-            $table->morphs('categorizable');
-            $table->timestamps();
-        });
-
         Schema::create('u_settings', function (Blueprint $table) {
             $table->id();
             $table->string('key');
@@ -39,6 +24,13 @@ return new class extends Migration // packages core core_extmodels_tables
             $table->foreignId('classify_id')->nullable()->constrained('u_classifies')->nullOnDelete();
             $table->timestamps();
         });
+
+Schema::create('form_settings', function (Blueprint $table) {
+    $table->id();
+    $table->string('name');
+    $table->json('schema')->nullable();
+    $table->timestamps();
+});
 
         Schema::create('u_properties', function (Blueprint $table) {
             $table->id();
@@ -99,8 +91,7 @@ return new class extends Migration // packages core core_extmodels_tables
         Schema::dropIfExists('u_metrics');
         Schema::dropIfExists('u_properties');
         Schema::dropIfExists('u_settings');
-        Schema::dropIfExists('categorizables');
-        Schema::dropIfExists('c_categories');
         Schema::dropIfExists('u_classifies');
+
     }
 };

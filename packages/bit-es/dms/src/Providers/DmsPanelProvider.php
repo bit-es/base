@@ -43,8 +43,8 @@ class DmsPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Dms/Widgets'), for: 'App\Filament\Dms\Widgets')
             ->widgets([
-                AccountWidget::class,
-                FilamentInfoWidget::class,
+                // AccountWidget::class,
+                // FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,

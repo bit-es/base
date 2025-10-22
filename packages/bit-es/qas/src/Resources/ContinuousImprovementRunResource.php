@@ -3,21 +3,25 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ContinuousImprovementRunResource\Pages;
-use App\Models\ContinuousImprovementRun;
 use App\Models\ContinuousImprovementMethodology;
+use App\Models\ContinuousImprovementRun;
 use Filament\Forms;
-use Filament\Tables;
-use Filament\Resources\Resource;
 use Filament\Forms\Form;
-use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Tables;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Table;
 
 class ContinuousImprovementRunResource extends Resource
 {
     protected static ?string $model = ContinuousImprovementRun::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-rocket-launch';
+
     protected static ?string $navigationGroup = 'Continuous Improvement';
+
     protected static ?string $navigationLabel = 'CI Runs';
+
     protected static ?string $slug = 'ci-runs';
 
     public static function form(Form $form): Form
