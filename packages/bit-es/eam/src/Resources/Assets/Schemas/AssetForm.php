@@ -6,6 +6,10 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Bites\Core\Field\ScanCode;
+
+use Bites\Core\Field\CameraUpload;
+
 
 class AssetForm
 {
@@ -15,12 +19,13 @@ class AssetForm
             ->components([
                 TextInput::make('asset_tag')
                     ->required(),
-                TextInput::make('name'),
+                
+                    ScanCode::make('name'),
                 TextInput::make('description')
                     ->required(),
                 TextInput::make('home_location_id')
                     ->numeric(),
-                TextInput::make('serialnum'),
+                CameraUpload::make('serialnum'),
                 TextInput::make('modelnum'),
                 Select::make('asset_type_id')
                     ->relationship('assetType', 'name'),

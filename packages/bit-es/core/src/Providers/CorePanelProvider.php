@@ -48,6 +48,7 @@ class CorePanelProvider extends PanelProvider
                 \Bites\Core\Resources\Locations\LocationResource::class,
                 \Bites\Core\Resources\OrgUnits\OrgUnitResource::class,
                 \Bites\Core\Resources\Turtles\TurtleResource::class,
+                \Bites\Core\Resources\Workflows\WorkflowResource::class,
                 \Bites\Core\Resources\OrgRoles\OrgRoleResource::class,
                 \Bites\Core\Resources\Documents\DocumentResource::class,
             ])

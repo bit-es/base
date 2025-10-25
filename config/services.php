@@ -34,5 +34,31 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
+    'keycloak' => [
+        'client_id' => env('KEYCLOAK_CLIENT_ID'),
+        'client_secret' => env('KEYCLOAK_CLIENT_SECRET'),
+        'redirect' => env('KEYCLOAK_REDIRECT_URI'),
+        'base_url' => env('KEYCLOAK_BASE_URL'),   // Specify your keycloak server URL here
+        'realms' => env('KEYCLOAK_REALM')         // Specify your keycloak realm
+    ],
+    'microsoft' => [
+        'client_id' => env('MICROSOFT_CLIENT_ID'),
+        'client_secret' => env('MICROSOFT_CLIENT_SECRET'),
+        'redirect' => env('MICROSOFT_REDIRECT_URI'),
+        'proxy' => env('PROXY')  // Optional, will be used for all requests
+    ],
+    'azure' => [
+        'client_id' => env('AZURE_CLIENT_ID'),
+        'client_secret' => env('AZURE_CLIENT_SECRET'),
+        'redirect' => env('AZURE_REDIRECT_URI'),
+        'tenant' => env('AZURE_TENANT_ID'),
+        'proxy' => env('PROXY')  // optionally
+    ],
+    'workos' => [
+        'client_id' => env('WORKOS_CLIENT_ID'),
+        'client_secret' => env('WORKOS_API_KEY'),
+        'redirect' => env('WORKOS_REDIRECT_URL'), // Refer pasar.test
+    ],
+    
 
 ];

@@ -15,8 +15,10 @@
         "bit-es/lms": "dev-main",
         "bit-es/mes": "dev-main",
         "bit-es/qas": "dev-main",
+        "dutchcodingcompany/filament-socialite": "^3.0",
         "laravel/framework": "^12.0",
-        "laravel/tinker": "^2.10.1"
+        "laravel/tinker": "^2.10.1",
+        "socialiteproviders/keycloak": "^5.3"
     },
     "repositories": [
         {

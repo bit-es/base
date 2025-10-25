@@ -17,7 +17,7 @@ class Workflow extends Model
         return $this->belongsTo(Turtle::class, 'id');
     }
 
-    public function states()
+    public function nodes()
     {
         return $this->hasMany(WorkflowState::class);
     }
@@ -43,5 +43,16 @@ class Workflow extends Model
         } // Attach category if present
 
         return $workflow;
+    }
+    public function updateInitialAndFinalNodes(): void
+    {
+        $nodes = $this->nodes()->orderBy('sort')->get();
+
+        foreach ($nodes as $index => $node) {
+            $node->update([
+                'is_initial' => $index === 0,
+                'is_final' => $index === $nodes->count() - 1,
+            ]);
+        }
     }
 }

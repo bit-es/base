@@ -18,6 +18,8 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use DutchCodingCompany\FilamentSocialite\FilamentSocialitePlugin;
+use DutchCodingCompany\FilamentSocialite\Provider;
 
 class StaffPanelProvider extends PanelProvider
 {
@@ -31,6 +33,43 @@ class StaffPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Lime,
             ])
+            ->plugin(
+                FilamentSocialitePlugin::make()
+                    // (required) Add providers corresponding with providers in `config/services.php`.
+                    ->providers([
+                        // Create a provider 'gitlab' corresponding to the Socialite driver with the same name.
+                        Provider::make('keycloak')
+                            ->label('Keycloak')
+                            ->icon('myicon-l-keycloak')
+                            ->color(Color::Gray)
+                            ->outlined(false)
+                            ->stateless(true),
+                        Provider::make('workos')
+                            ->label('WorkOS')
+                            ->icon('myicon-l-workos')
+                            ->color(Color::Gray)
+                            ->outlined(false)
+                            ->stateless(false)
+                            ->scopes(['...'])
+                            ->with(['...']),
+                        Provider::make('microsoft')
+                            ->label('Microsoft AD')
+                            ->icon('myicon-l-microsoft')
+                            ->color(Color::Gray)
+                            ->outlined(false)
+                            ->stateless(false)
+                            ->scopes(['...'])
+                            ->with(['...']),
+                        Provider::make('azure')
+                            ->label('Azure AD')
+                            ->icon('myicon-l-azure')
+                            ->color(Color::Gray)
+                            ->outlined(false)
+                            ->stateless(false)
+                            ->scopes(['...'])
+                            ->with(['...']),
+                    ])->registration(true)
+            )
             ->discoverResources(in: app_path('Filament/Staff/Resources'), for: 'App\Filament\Staff\Resources')
             ->discoverPages(in: app_path('Filament/Staff/Pages'), for: 'App\Filament\Staff\Pages')
             ->pages([

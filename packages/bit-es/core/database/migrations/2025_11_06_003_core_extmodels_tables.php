@@ -12,25 +12,30 @@ return new class extends Migration // packages core core_extmodels_tables
         Schema::create('u_classifies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('parent_id')->nullable()->constrained('u_classifies')->nullOnDelete();
-            $table->morphs('classifiable');
+            $table->foreignId('parent_id')->nullable()->constrained('u_classifies')->cascadeOnDelete();
             $table->timestamps();
         });
         Schema::create('u_settings', function (Blueprint $table) {
             $table->id();
             $table->string('key');
-            $table->json('value');
+            $table->json('schema')->nullable();
             $table->enum('type', array_column(SettingType::cases(), 'value'));
-            $table->foreignId('classify_id')->nullable()->constrained('u_classifies')->nullOnDelete();
             $table->timestamps();
         });
-
-Schema::create('form_settings', function (Blueprint $table) {
-    $table->id();
-    $table->string('name');
-    $table->json('schema')->nullable();
-    $table->timestamps();
-});
+        Schema::create('classifiables', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('classify_id')->constrained('u_classifies')->cascadeOnDelete();
+            $table->morphs('classifiable'); // classifiable_type + classifiable_id            
+            $table->foreignId('settings_id')->nullable()->constrained('u_settings')->cascadeOnDelete();
+            $table->timestamps();
+            $table->unique(['classify_id', 'classifiable_type', 'classifiable_id'], 'unique_classifiable');
+        });
+        Schema::create('form_settings', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->json('schema')->nullable();
+            $table->timestamps();
+        });
 
         Schema::create('u_properties', function (Blueprint $table) {
             $table->id();
@@ -92,6 +97,5 @@ Schema::create('form_settings', function (Blueprint $table) {
         Schema::dropIfExists('u_properties');
         Schema::dropIfExists('u_settings');
         Schema::dropIfExists('u_classifies');
-
     }
 };

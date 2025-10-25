@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class WorkflowTransition extends Model
 {
-    protected $table = 'workflow_transitions';
+    protected $table = 'c_transitions';
 
     protected $guarded = [];
 

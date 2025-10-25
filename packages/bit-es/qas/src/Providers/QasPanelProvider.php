@@ -37,6 +37,7 @@ class QasPanelProvider extends PanelProvider
                 \Bites\Qas\Resources\NonConformities\NonConformityResource::class,
                 \Bites\Qas\Resources\CorrectiveActions\CorrectiveActionResource::class,
                 \Bites\Qas\Resources\QualityStandards\QualityStandardResource::class,
+                \Bites\Qas\Resources\Methodologies\MethodologyResource::class,
             ])
             ->discoverPages(in: app_path('Filament/Qas/Pages'), for: 'App\Filament\Qas\Pages')
             ->pages([

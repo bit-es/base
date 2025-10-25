@@ -5,7 +5,6 @@ namespace Bites\Core\Relations;
 use Bites\Core\Services\JsonFormBuilder;
 use App\Models\FormSetting;
 use Bites\Core\Models\Setting;
-
 use Filament\Actions\CreateAction;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Components\Tabs\Tab;

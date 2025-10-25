@@ -62,29 +62,31 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('workflow_states', function (Blueprint $table) {
+        Schema::create('c_nodes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('workflow_id')->constrained('c_workflows')->cascadeOnDelete();
             $table->string('name');
             $table->boolean('is_initial')->default(false);
             $table->boolean('is_final')->default(false);
             $table->foreignId('assignee_role_id')->nullable()->constrained('c_org_roles')->nullOnDelete();
+            $table->integer('sort')->default(0);
             $table->timestamps();
         });
 
-        Schema::create('workflow_transitions', function (Blueprint $table) {
+        Schema::create('c_transitions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('workflow_id')->constrained('c_workflows')->cascadeOnDelete();
-            $table->foreignId('from_state_id')->constrained('workflow_states')->cascadeOnDelete();
-            $table->foreignId('to_state_id')->constrained('workflow_states')->cascadeOnDelete();
+            $table->foreignId('from_state_id')->constrained('c_nodes')->cascadeOnDelete();
+            $table->foreignId('to_state_id')->constrained('c_nodes')->cascadeOnDelete();
             $table->string('action_name');
+            $table->integer('sort')->default(0);
             $table->timestamps();
         });
 
         Schema::create('c_requests', function (Blueprint $table) {
             $table->id();
             $table->foreignId('workflow_id')->constrained('c_workflows')->cascadeOnDelete();
-            $table->foreignId('current_state_id')->nullable()->constrained('workflow_states')->nullOnDelete();
+            $table->foreignId('current_state_id')->nullable()->constrained('c_nodes')->nullOnDelete();
             $table->morphs('subject');
             $table->foreignId('initiator_id')->nullable()->constrained('c_org_roles')->nullOnDelete();
             $table->timestamps();
@@ -105,8 +107,8 @@ return new class extends Migration
     {
         Schema::dropIfExists('c_activities');
         Schema::dropIfExists('c_requests');
-        Schema::dropIfExists('workflow_transitions');
-        Schema::dropIfExists('workflow_states');
+        Schema::dropIfExists('c_transitions');
+        Schema::dropIfExists('c_nodes');
         Schema::dropIfExists('c_workflows');
         // Schema::dropIfExists('processes');
         Schema::dropIfExists('c_turtles');

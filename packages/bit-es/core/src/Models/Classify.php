@@ -7,13 +7,17 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Classify extends Model
 {
+    use \Bites\Core\Traits\HasExtAttributes;
+
     protected $table = 'u_classifies';
 
-    protected $fillable = ['name', 'parent_id', 'classifiable_type', 'classifiable_id'];
+    protected $guarded = [];
 
-    public function classifiable(): MorphTo
+    public function classifiable()
     {
-        return $this->morphTo();
+        return $this->morphedByMany(Model::class, 'classifiable')
+            ->withPivot('settings_id')
+            ->withTimestamps();
     }
 
     public function parent()

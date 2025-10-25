@@ -38,10 +38,14 @@ trait BitesModel
     }
 
     // Relations
-    public function classify(): MorphMany
+
+    public function classifies()
     {
-        return $this->morphMany(Classify::class, 'classifiable');
+        return $this->morphToMany(Classify::class, 'classifiable')
+                    ->withPivot('settings_id')
+                    ->withTimestamps();
     }
+
 
     public function properties(): MorphMany
     {

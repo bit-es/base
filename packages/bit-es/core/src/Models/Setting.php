@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Setting extends Model
 {
+    use \Bites\Core\Traits\HasExtAttributes;
+
     protected $table = 'u_settings';
 
-    protected $fillable = ['key', 'value', 'type', 'scope_id'];
+    protected $guarded = [];
 
     protected $casts = ['value' => 'array'];
 
