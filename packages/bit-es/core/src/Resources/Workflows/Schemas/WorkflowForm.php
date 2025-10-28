@@ -2,19 +2,19 @@
 
 namespace Bites\Core\Resources\Workflows\Schemas;
 
-use Filament\Schemas\Schema;
-use Filament\Forms\Components\Repeater;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Toggle;
-use Filament\Forms\Components\Repeater\TableColumn;
 use Bites\Core\Models\Workflow;
-use Filament\Support\Enums\Alignment;
-use Filament\Schemas\Components\Flex;
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Repeater\TableColumn;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
-use Illuminate\Database\Eloquent\Model;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Components\Flex;
 use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
+use Filament\Support\Enums\Alignment;
+use Illuminate\Database\Eloquent\Model;
 
 class WorkflowForm
 {
@@ -31,10 +31,10 @@ class WorkflowForm
                         TextEntry::make('turtle.name')
                             ->label('Name'),
                     ]),
-                    // ->relationship('turtle', 'name')
-                    // ->disabled()
-                    // ->getOptionLabelFromRecordUsing(fn (Model $record) => "{$record->code} .' : '.{$record->namee}")               
-                    // ->label('from Turtle'),
+                // ->relationship('turtle', 'name')
+                // ->disabled()
+                // ->getOptionLabelFromRecordUsing(fn (Model $record) => "{$record->code} .' : '.{$record->namee}")
+                // ->label('from Turtle'),
                 Textarea::make('description')->nullable()->columnspanFull()->rows(4),
                 Repeater::make('nodes')
                     // ->table([
@@ -46,8 +46,8 @@ class WorkflowForm
                     ->schema([
                         Flex::make([
                             TextInput::make('name')->required(),
-                            //Toggle::make('is_initial')->distinct(),
-                            //Toggle::make('is_final')->distinct(),
+                            // Toggle::make('is_initial')->distinct(),
+                            // Toggle::make('is_final')->distinct(),
                             Select::make('assignee_role_id')
                                 ->relationship('assigneeRole', 'name')
                                 ->nullable()->grow(false),
@@ -74,12 +74,11 @@ class WorkflowForm
                             ->orderColumn('sort'),
                     ])
                     ->relationship()
-                    ->deletable(fn($record) => $record->is_initial || $record->is_final ? false : true)
+                    ->deletable(fn ($record) => $record->is_initial || $record->is_final ? false : true)
                     ->orderColumn('sort')
                     ->label('Workflow Nodes')
                     ->collapsible()
                     ->columnSpanFull(),
-
 
             ]);
         // ->afterSave(function (Workflow $record) {$record->updateInitialAndFinalNodes();});

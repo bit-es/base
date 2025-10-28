@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Workflow extends Model
 {
-    use \Bites\Core\Traits\BitesModel, \Bites\Core\Traits\HasCategories;
+    use \Bites\Core\Traits\HasCategories, \Bites\Core\Traits\HasClassStructuredAttributes;
 
     protected $table = 'c_workflows';
 
@@ -44,6 +44,7 @@ class Workflow extends Model
 
         return $workflow;
     }
+
     public function updateInitialAndFinalNodes(): void
     {
         $nodes = $this->nodes()->orderBy('sort')->get();

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class StaffJobAssignment extends Model
 {
-    use \Bites\Core\Traits\BitesModel;
+    use \Bites\Core\Traits\HasClassStructuredAttributes;
 
     protected $table = 'h_staff_job_assignments';
 

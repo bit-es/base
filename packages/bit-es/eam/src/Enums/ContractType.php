@@ -5,7 +5,7 @@ namespace Bites\Eam\Enums;
 use Filament\Support\Contracts\HasDescription;
 use Filament\Support\Contracts\HasLabel;
 
-enum ContractType: string implements HasLabel, HasDescription
+enum ContractType: string implements HasDescription, HasLabel
 {
     case WARRANTY = 'warranty';
     case LICENSE = 'license';
@@ -16,6 +16,7 @@ enum ContractType: string implements HasLabel, HasDescription
     case SUPPORT = 'support';
     case INSURANCE = 'insurance';
     case COMPLIANCE = 'compliance';
+
     public function getLabel(): ?string
     {
         return $this->name;

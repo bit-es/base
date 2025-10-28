@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class JobPosition extends Model
 {
-    use \Bites\Core\Traits\BitesModel;
+    use \Bites\Core\Traits\HasClassStructuredAttributes;
 
     protected $table = 'c_job_positions';
 

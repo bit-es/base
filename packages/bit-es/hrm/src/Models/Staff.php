@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Staff extends Model
 {
-    use \Bites\Core\Traits\BitesModel;
+    use \Bites\Core\Traits\HasClassStructuredAttributes;
 
     protected $table = 'h_staff';
 

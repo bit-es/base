@@ -3,7 +3,7 @@
 namespace Bites\Core\Resources\Settings;
 
 use BackedEnum;
-use Bites\Core\Models\Setting;
+use Bites\Core\Models\Csa\Setting;
 use Bites\Core\Resources\Settings\Pages\CreateSetting;
 use Bites\Core\Resources\Settings\Pages\EditSetting;
 use Bites\Core\Resources\Settings\Pages\ListSettings;

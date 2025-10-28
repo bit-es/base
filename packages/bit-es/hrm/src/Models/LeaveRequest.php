@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class LeaveRequest extends Model
 {
-    use \Bites\Core\Traits\BitesModel;
+    use \Bites\Core\Traits\HasClassStructuredAttributes;
 
     protected $table = 'h_leave_requests';
 

@@ -2,6 +2,8 @@
 
 namespace Bites\Qas\Resources\Methodologies;
 
+use BackedEnum;
+use Bites\Qas\Models\Methodology;
 use Bites\Qas\Resources\Methodologies\Pages\CreateMethodology;
 use Bites\Qas\Resources\Methodologies\Pages\EditMethodology;
 use Bites\Qas\Resources\Methodologies\Pages\ListMethodologies;
@@ -9,8 +11,6 @@ use Bites\Qas\Resources\Methodologies\Pages\ViewMethodology;
 use Bites\Qas\Resources\Methodologies\Schemas\MethodologyForm;
 use Bites\Qas\Resources\Methodologies\Schemas\MethodologyInfolist;
 use Bites\Qas\Resources\Methodologies\Tables\MethodologiesTable;
-use Bites\Qas\Models\Methodology;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;

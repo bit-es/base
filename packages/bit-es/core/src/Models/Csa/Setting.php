@@ -1,6 +1,6 @@
 <?php
 
-namespace Bites\Core\Models;
+namespace Bites\Core\Models\Csa;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,7 +12,10 @@ class Setting extends Model
 
     protected $guarded = [];
 
-    protected $casts = ['value' => 'array'];
+    protected $casts = [
+        'key_options' => 'array',
+        'value_options' => 'array',
+    ];
 
     public function classify()
     {

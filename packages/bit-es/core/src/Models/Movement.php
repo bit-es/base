@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Movement extends Model
 {
-    use \Bites\Core\Traits\BitesModel;
+    use \Bites\Core\Traits\HasClassStructuredAttributes;
 
     protected $table = 'movements';
 

@@ -2,14 +2,13 @@
 
 namespace Bites\Core\Services;
 
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\Toggle;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\EmailInput;
-use Filament\Forms\Components\TextInput\Mask;
 use Filament\Forms\Components\NumberInput;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 
 class JsonFormBuilder
 {
@@ -37,12 +36,12 @@ class JsonFormBuilder
             }
 
             // Apply required
-            if (!empty($field['required'])) {
+            if (! empty($field['required'])) {
                 $component->required();
             }
 
             // Apply rules
-            if (!empty($field['rules']) && is_array($field['rules'])) {
+            if (! empty($field['rules']) && is_array($field['rules'])) {
                 $component->rules(array_values($field['rules']));
             }
 

@@ -2,18 +2,17 @@
 
 namespace Bites\Core\Resources\Workflows;
 
+use BackedEnum;
+use Bites\Core\Models\Workflow;
 use Bites\Core\Resources\Workflows\Pages\CreateWorkflow;
 use Bites\Core\Resources\Workflows\Pages\EditWorkflow;
 use Bites\Core\Resources\Workflows\Pages\ListWorkflows;
 use Bites\Core\Resources\Workflows\Schemas\WorkflowForm;
 use Bites\Core\Resources\Workflows\Tables\WorkflowsTable;
-use Bites\Core\Models\Workflow;
-use BackedEnum;
-use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class WorkflowResource extends Resource
 {

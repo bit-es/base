@@ -10,9 +10,9 @@ use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Fieldset;
 use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
 
 class ContractForm
 {
@@ -27,7 +27,7 @@ class ContractForm
                         ->relationship(
                             name: 'supplier',
                             titleAttribute: 'name',
-                            modifyQueryUsing: fn($query) => $query->where('isSupplier', true)
+                            modifyQueryUsing: fn ($query) => $query->where('isSupplier', true)
                         )
                         ->required()
                         ->createOptionForm([
@@ -41,6 +41,7 @@ class ContractForm
                         ])
                         ->createOptionUsing(function (array $data): int {
                             $company = Company::create($data);
+
                             return $company->getKey();
                         }),
                     Fieldset::make('Duration')->schema([

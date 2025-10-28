@@ -2,12 +2,11 @@
 
 namespace App\Filament\Core\Resources\FormSettings\Schemas;
 
-use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Forms\Components\KeyValue;
-use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
 
 class FormSettingForm
@@ -42,7 +41,7 @@ class FormSettingForm
 
                         KeyValue::make('options')
                             ->label('Options (for select)')
-                            ->visible(fn($get) => $get('type') === 'select'),
+                            ->visible(fn ($get) => $get('type') === 'select'),
                     ])
                     ->columns(2)
                     ->reorderable()

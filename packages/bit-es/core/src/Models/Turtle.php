@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Turtle extends Model
 {
-    use \Bites\Core\Traits\BitesModel, \Bites\Core\Traits\HasCategories;
+    use \Bites\Core\Traits\HasCategories, \Bites\Core\Traits\HasClassStructuredAttributes;
 
     protected $table = 'c_turtles';
 

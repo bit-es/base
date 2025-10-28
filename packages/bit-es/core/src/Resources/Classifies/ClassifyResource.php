@@ -3,7 +3,7 @@
 namespace Bites\Core\Resources\Classifies;
 
 use BackedEnum;
-use Bites\Core\Models\Classify;
+use Bites\Core\Models\Csa\Classify;
 use Bites\Core\Resources\Classifies\Pages\CreateClassify;
 use Bites\Core\Resources\Classifies\Pages\EditClassify;
 use Bites\Core\Resources\Classifies\Pages\ListClassifies;

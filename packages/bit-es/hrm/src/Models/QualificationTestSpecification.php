@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class QualificationTestSpecification extends Model
 {
-    use \Bites\Core\Traits\BitesModel;
+    use \Bites\Core\Traits\HasClassStructuredAttributes;
 
     protected $table = 'h_qualification_test_specifications';
 

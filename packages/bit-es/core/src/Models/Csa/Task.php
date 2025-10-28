@@ -1,6 +1,6 @@
 <?php
 
-namespace Bites\Core\Models;
+namespace Bites\Core\Models\Csa;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
@@ -18,8 +18,13 @@ class Task extends Model
         return $this->morphTo();
     }
 
+    public function classify()
+    {
+        return $this->belongsTo(Classify::class, 'classify_id');
+    }
+
     public function setting()
     {
-        return $this->belongsTo(Setting::class);
+        return $this->belongsTo(Classify::class, 'setting_id');
     }
 }

@@ -2,14 +2,12 @@
 
 namespace Bites\Eam\Resources\Assets\Schemas;
 
+use Bites\Core\Field\CameraUpload;
+use Bites\Core\Field\ScanCode;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
-use Bites\Core\Field\ScanCode;
-
-use Bites\Core\Field\CameraUpload;
-
 
 class AssetForm
 {
@@ -19,8 +17,8 @@ class AssetForm
             ->components([
                 TextInput::make('asset_tag')
                     ->required(),
-                
-                    ScanCode::make('name'),
+
+                ScanCode::make('name'),
                 TextInput::make('description')
                     ->required(),
                 TextInput::make('home_location_id')

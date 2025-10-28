@@ -37,8 +37,9 @@ class ContractResource extends Resource
 
     public static function infolist(Schema $schema): Schema
     {
-        $temp=ContractInfolist::configure($schema);
+        $temp = ContractInfolist::configure($schema);
         dump($schema);
+
         return $temp;
     }
 

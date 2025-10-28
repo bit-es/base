@@ -14,7 +14,7 @@ class ClassifiesTable
     {
         return $table
             ->columns([
-                Columns\TextColumn::make('name'),
+                Columns\TextColumn::make('full_path'),
                 Columns\TextColumn::make('classifiable_type')->label('Type'),
                 Columns\TextColumn::make('classifiable_id')->label('ID'),
                 Columns\TextColumn::make('parent.name')->label('Parent'),

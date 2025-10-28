@@ -7,7 +7,9 @@ use Bites\Core\Models\Location;
 use Bites\Core\Resources\Locations\Pages\CreateLocation;
 use Bites\Core\Resources\Locations\Pages\EditLocation;
 use Bites\Core\Resources\Locations\Pages\ListLocations;
+use Bites\Core\Resources\Locations\Pages\ViewLocation;
 use Bites\Core\Resources\Locations\Schemas\LocationForm;
+use Bites\Core\Resources\Locations\Schemas\LocationInfolist;
 use Bites\Core\Resources\Locations\Tables\LocationsTable;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -24,11 +26,16 @@ class LocationResource extends Resource
 
     protected static ?string $modelLabel = 'Locations';
 
-    protected static ?int $navigationSort = 3;
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {
         return LocationForm::configure($schema);
+    }
+
+    public static function infolist(Schema $schema): Schema
+    {
+        return LocationInfolist::configure($schema);
     }
 
     public static function table(Table $table): Table
@@ -48,6 +55,7 @@ class LocationResource extends Resource
         return [
             'index' => ListLocations::route('/'),
             'create' => CreateLocation::route('/create'),
+            'view' => ViewLocation::route('/{record}'),
             'edit' => EditLocation::route('/{record}/edit'),
         ];
     }

@@ -38,3 +38,6 @@
 <x-filament::icon-button icon="myicon-p-qas" href="{{ route('filament.qas.pages.dashboard') }}" tag="a"
     color="{{ $currentRoute == 'filament.qas.pages.dashboard' ? 'primary' : 'gray' }}"
     tooltip="{{ __('QAS Panel') }}" />
+<x-filament::icon-button icon="myicon-p-core" href="{{ route('filament.core.pages.dashboard') }}" tag="a"
+    color="{{ $currentRoute == 'filament.core.pages.dashboard' ? 'primary' : 'gray' }}"
+    tooltip="{{ __('Core Panel') }}" />

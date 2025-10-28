@@ -2,11 +2,11 @@
 
 namespace Bites\Core\Resources\Workflows\Pages;
 
+use Bites\Core\Models\OrgUnit;
 use Bites\Core\Resources\Workflows\WorkflowResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Schemas\Components\Tabs\Tab;
-use Bites\Core\Models\OrgUnit;
 use Illuminate\Database\Eloquent\Builder;
 
 class ListWorkflows extends ListRecords
@@ -19,6 +19,7 @@ class ListWorkflows extends ListRecords
             CreateAction::make(),
         ];
     }
+
     public function getTabs(): array
     {
         $tabs = [];
@@ -31,15 +32,12 @@ class ListWorkflows extends ListRecords
         foreach (OrgUnit::all() as $orgUnit) {
             $tabs[$orgUnit->slug ?? $orgUnit->id] = Tab::make($orgUnit->name)
                 ->modifyQueryUsing(
-                    fn(Builder $query) =>
-                    $query->whereHas(
+                    fn (Builder $query) => $query->whereHas(
                         'turtle',
-                        fn($q) =>
-                        $q->where('org_unit_id', $orgUnit->id)
+                        fn ($q) => $q->where('org_unit_id', $orgUnit->id)
                     )
                 );
         }
-
 
         return $tabs;
     }

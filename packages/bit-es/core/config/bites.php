@@ -4,6 +4,7 @@ return [
     'model_namespaces' => [
         'App\\Models\\',
         'Bites\\Core\\Models\\',
+        'Bites\\Core\\Models\\Csa\\',
         'Bites\\Dms\\Models\\',
         'Bites\\Erp\\Models\\',
         'Bites\\Eam\\Models\\',

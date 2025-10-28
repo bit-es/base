@@ -19,7 +19,8 @@ class WorkflowState extends Model
     {
         return $this->belongsTo(OrgRole::class, 'assignee_role_id');
     }
-        public function transitions()
+
+    public function transitions()
     {
         return $this->hasMany(WorkflowTransition::class, 'from_state_id');
     }

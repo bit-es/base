@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Policies\{{ name }}Policy;
-use Bites\Core\Traits\BitesModel;
+use Bites\Core\Traits\HasClassStructuredAttributes;
 use Illuminate\Database\Eloquent\Model;
 
 #[UsePolicy({{ name }}Policy::class)]
