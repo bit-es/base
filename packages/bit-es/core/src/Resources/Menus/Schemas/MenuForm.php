@@ -27,19 +27,31 @@ class MenuForm
                 Select::make('internal_link')
                     ->label('Internal Route')
                     ->options(function () {
-                        // Cache routes to avoid rescanning
                         return cache()->remember('internal_route_list', 3600, function () {
                             return collect(Route::getRoutes())
                                 ->mapWithKeys(function ($route) {
                                     $name = $route->getName();
+
                                     if (! $name) {
                                         return [];
                                     }
+
+                                    // Only include routes starting with filament. or app.
                                     if (! Str::startsWith($name, ['filament.', 'app.'])) {
                                         return [];
                                     }
 
-                                    return [$name => $name];
+                                    // Exclude routes ending with .login, .logout, .edit
+                                    if (Str::endsWith($name, ['.login', '.logout', '.edit'])) {
+                                        return [];
+                                    }
+
+                                    // Truncate filament. prefix
+                                    $label = Str::startsWith($name, 'filament.')
+                                        ? Str::after($name, 'filament.')
+                                        : $name;
+
+                                    return [$name => $label];
                                 })
                                 ->sort()
                                 ->toArray();

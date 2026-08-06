@@ -11,14 +11,13 @@ use Bites\Core\Resources\Menus\Schemas\MenuForm;
 use Bites\Core\Resources\Menus\Tables\MenusTable;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class MenuResource extends Resource
 {
     protected static ?string $model = Menu::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'myicon-r-menu';
 
     protected static ?string $recordTitleAttribute = 'title';
 

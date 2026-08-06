@@ -6,9 +6,13 @@ use Bites\Core\Models\Menu;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Tables\Columns\IconColumn;
+use Filament\Support\Enums\TextSize;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\Layout\Split;
+use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Enums\FiltersLayout;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Route;
@@ -20,58 +24,52 @@ class MenusTable
     {
         return $table
             ->columns([
-                ImageColumn::make('icon')
-                    ->label('')
-                    ->circular()
-                    ->defaultImageUrl('https://raw.githubusercontent.com/bit-ecosystem/bites/refs/heads/main/menu/business-idea.svg'),
-                // ->visible(fn($record) => $record?->icon_type === 'svg'),
-                // IconColumn::make('icon')
-                //      ->icon(fn($record) => $record?->icon_type === 'svg' ? $record->icon : null)
-                //     // ->visible(fn($record) => $record?->icon_type === 'svg')
-                //     ->label(''),
-
-                TextColumn::make('title')
-                    ->label('Title')
-                    ->searchable()
-                    ->sortable(),
-
-                TextColumn::make('debug')
-                    ->label('Debug')
-                    ->getStateUsing(fn ($record) => $record?->icon_type === 'svg' ? Str::kebab($record->title) : null),
-
-                TextColumn::make('description')
-                    ->limit(80)
-                    ->wrap(),
-                TextColumn::make('internal_link')
-                    ->searchable()
-                    ->sortable(),
+                Split::make([
+                    ImageColumn::make('icon')
+                        ->label('')
+                        ->circular()
+                        ->grow(false)
+                        ->defaultImageUrl('https://raw.githubusercontent.com/bit-ecosystem/bites/refs/heads/main/menu/business-idea.svg'), // to chanage to Str::kebab($record->title)
+                    Stack::make([
+                        TextColumn::make('title')
+                            ->label('Title')
+                            // ->searchable()
+                            ->color('primary'),
+                        TextColumn::make('description')
+                            ->size(TextSize::ExtraSmall)
+                            ->wrap(),
+                    ]),
+                ]),
             ])
-            // ->recordUrl(
-            //     fn(Menu $record) =>
-            //     $record->internal_link && Route::has($record->internal_link)
-            //         ? route($record->internal_link, $record->id ?? null)
-            //         : $record->external_link,
-            //     shouldOpenInNewTab: fn(Menu $record) => blank($record->internal_link)
-            // )
-
+            ->paginated(false)
+            ->contentGrid([
+                'md' => 2,
+                'xl' => 4,
+            ])
             ->recordUrl(
                 fn (Model $record): string => $record->internal_link && Route::has($record->internal_link)
                     ? route($record->internal_link)
                     : ($record->external_link ?? '#')
             )
-
-            // ->defaultSort('title')
-
             ->filters([
-                //
-            ])
-            ->recordActions([
-                EditAction::make(),
+                //     SelectFilter::make('category')
+                //         ->label('Category')
+                //         ->options(
+                //             fn() =>
+                //             Menu::query()
+                //                 ->select('category')
+                //                 ->distinct()
+                //                 ->pluck('category', 'category')
+                //                 ->toArray()
+                //         ),
+                // ], layout: FiltersLayout::AboveContentCollapsible)
+                // ->recordActions([
+                //     // EditAction::make(),
             ])
             ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
+                // BulkActionGroup::make([
+                // DeleteBulkAction::make(),
+                // ]),
             ]);
     }
 }

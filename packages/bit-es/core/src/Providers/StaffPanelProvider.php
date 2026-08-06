@@ -31,7 +31,7 @@ class StaffPanelProvider extends PanelProvider
             ->brandName('Staff Portal')
             ->login()
             ->colors([
-                'primary' => Color::Lime,
+                'primary' => Color::Blue,
             ])
             ->plugin(
                 FilamentSocialitePlugin::make()
@@ -73,10 +73,12 @@ class StaffPanelProvider extends PanelProvider
             ->discoverResources(in: app_path('Filament/Staff/Resources'), for: 'App\Filament\Staff\Resources')
             ->resources([
                 \Bites\Core\Resources\Menus\MenuResource::class,
+
             ])
             ->discoverPages(in: app_path('Filament/Staff/Pages'), for: 'App\Filament\Staff\Pages')
             ->pages([
                 Dashboard::class,
+                // \Bites\Core\Resources\LifecycleStub::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Staff/Widgets'), for: 'App\Filament\Staff\Widgets')
             ->widgets([
@@ -97,6 +99,13 @@ class StaffPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+                // function ($request, $next) {
+                //     if (! $request->user() || ! $request->user()->hasRole('staff')) {
+                //         abort(403);
+                //     }
+                //     return $next($request);
+                // }
+
             ]);
     }
 }

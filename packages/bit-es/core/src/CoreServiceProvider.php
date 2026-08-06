@@ -26,6 +26,11 @@ class CoreServiceProvider extends ServiceProvider
             $event->extendSocialite('keycloak', KeycloakProvider::class);
         });
 
+        $this->publishes([
+            __DIR__.'/../config/bites.php' => config_path('bites.php'),
+        ], 'config');
+
+        $this->extendModels();
     }
 
     public function register()
@@ -38,5 +43,28 @@ class CoreServiceProvider extends ServiceProvider
             Commands\BitesRegisterProvider::class,
             Commands\BitesModel::class,
         ]);
+    }
+
+    protected function extendModels()
+    {
+        $person_models = config('bites.person_models', []);
+        $asset_models = config('bites.asset_models', []);
+
+        foreach ($person_models as $modelClass) {
+            if (! method_exists($modelClass, 'attributable')) {
+                $modelClass::macro('attributable', function () {
+                    /** @var \Illuminate\Database\Eloquent\Model $this */
+                    return $this->morphMany(\Bites\Core\Models\Aea\PersonAttribute::class, 'attributable');
+                });
+            }
+        }
+        foreach ($asset_models as $modelClass) {
+            if (! method_exists($modelClass, 'attributable')) {
+                $modelClass::macro('attributable', function () {
+                    /** @var \Illuminate\Database\Eloquent\Model $this */
+                    return $this->morphMany(\Bites\Core\Models\Aea\AssetAttribute::class, 'attributable');
+                });
+            }
+        }
     }
 }

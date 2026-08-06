@@ -10,8 +10,10 @@
 
     // Get the icon from the configuration file
     $icons = config('bites-base.service-menu.icons');
+    // dd((auth()->check()));
 @endphp
 
+@auth
 <x-filament::icon-button icon="myicon-p-lobby" href="{{ route('filament.lobby.pages.dashboard') }}" tag="a"
     color="{{ $currentRoute == 'filament.lobby.pages.dashboard' ? 'primary' : 'gray' }}" tooltip="{{ __('Lobby') }}" />
 <x-filament::icon-button icon="myicon-p-home" href="{{ route('filament.staff.pages.dashboard') }}" tag="a"
@@ -41,3 +43,4 @@
 <x-filament::icon-button icon="myicon-p-core" href="{{ route('filament.core.pages.dashboard') }}" tag="a"
     color="{{ $currentRoute == 'filament.core.pages.dashboard' ? 'primary' : 'gray' }}"
     tooltip="{{ __('Core Panel') }}" />
+@endauth

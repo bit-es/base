@@ -37,7 +37,7 @@ class Workflow extends Model
         $categoryData = $data['category'] ?? null;
         unset($data['category']); // Clean up
 
-        $workflow = self::create($data); // Create Turtle
+        $workflow = self::create($data); // Create Workflow
         if ($categoryData) {
             $workflow->addCategoryFromJson(['category' => $categoryData]);
         } // Attach category if present

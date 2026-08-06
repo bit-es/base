@@ -7,8 +7,7 @@
 </div>
 <style>
     body {
-        background: rgb(248, 209, 86) !important;
-        background: linear-gradient(0deg, rgba(248, 209, 86, 1) 0%, rgba(101, 170, 218, 1) 100%) !important;
+        background: url('{{ asset('images/atm.jpg') }}') no-repeat center center fixed;
     }
 
     @media screen and (min-width: 1024px) {
@@ -39,16 +38,22 @@
 
 
 
+
         #slogan {
             position: fixed;
             left: 100px;
-            margin-top: 50px;
+            top: 50px;
             color: bisque;
-            font-family: Arial;
+            font-family: Arial, sans-serif;
             font-size: 2em;
             font-weight: bold;
             text-shadow: #3f6212 2px 2px 5px;
+            max-width: 100px;
+            /* or any width that fits your layout */
+            white-space: normal;
+            word-wrap: break-word;
         }
+
     }
 </style>
 

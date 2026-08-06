@@ -1,23 +1,24 @@
 <?php
 
-namespace App\Filament\Core\Resources\FormSettings\Tables;
+namespace Bites\Hrm\Resources\WorkforceTemplates\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class FormSettingsTable
+class WorkforceTemplatesTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('name')
+                TextColumn::make('title')
                     ->searchable(),
-                TextColumn::make('schema'),
-
+                TextColumn::make('masco_code')
+                    ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -31,6 +32,7 @@ class FormSettingsTable
                 //
             ])
             ->recordActions([
+                ViewAction::make(),
                 EditAction::make(),
             ])
             ->toolbarActions([

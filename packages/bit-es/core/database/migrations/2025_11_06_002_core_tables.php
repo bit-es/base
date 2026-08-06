@@ -49,6 +49,52 @@ return new class extends Migration // packages core core_tables
             $table->text('description')->nullable();
             $table->timestamps();
         });
+        Schema::create('staff', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->unique()->constrained()->cascadeOnDelete();
+            $table->string('staff_number')->unique();
+            $table->date('hire_date')->nullable();
+            $table->foreignId('cost_center_id')->nullable()->constrained('p_cost_centers')->nullOnDelete();
+            $table->foreignId('org_unit_id')->nullable()->constrained('c_org_units')->nullOnDelete();
+            // $table->foreignId('job_position_id')->nullable()->constrained('c_job_positions')->nullOnDelete();
+            $table->timestamps();
+        });
+        // for consumption of users, staffs (actual), job_posts (defined)
+        Schema::create('person_attributes', function (Blueprint $table) {
+            $table->id();
+            $table->string('key'); // e.g. 'gender', 'dob', 'phone'
+            $table->text('value')->nullable();
+            $table->morphs('attributable'); // adds attributable_id and attributable_type
+            $table->timestamps();
+        });
+        // for consumption of assets, equipment, (actual,defined)
+        Schema::create('asset_attributes', function (Blueprint $table) {
+            $table->id();
+            $table->string('key'); // e.g. 'dimensions', 'type', 'location'
+            $table->text('value')->nullable();
+            $table->morphs('attributable'); // adds adds attributable_id and attributable_type
+            $table->timestamps();
+        });
+
+        Schema::create('role_mappers', function (Blueprint $table) {
+            $table->id();
+            $table->morphs('mappable'); // creates mappable_id and mappable_type
+            $table->foreignId('role_id')->constrained('roles')->cascadeOnDelete();
+            $table->timestamps();
+        });
+
+        //  // Assign role to a JobPost
+        // $jobPost->roleMappers()->create(['role_id' => $adminRole->id]);
+
+        // // Assign role to a Staff
+        // $staff->roleMappers()->create(['role_id' => $editorRole->id]);
+
+        // // Sync roles to user on login
+        // $roleIds = RoleMapper::whereHasMorph('mappable', [Staff::class, JobPost::class], function ($query) use ($staff, $jobPost) {
+        //     $query->whereIn('id', [$staff->id, optional($jobPost)->id]);
+        // })->pluck('role_id');
+
+        // $user->syncRoles(Role::whereIn('id', $roleIds)->get());
 
         Schema::create('c_panels', function (Blueprint $table) {
             $table->id();

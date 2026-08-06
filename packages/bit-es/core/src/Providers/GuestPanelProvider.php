@@ -10,7 +10,6 @@ use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
-use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -27,18 +26,19 @@ class GuestPanelProvider extends PanelProvider
             ->id('lobby')
             ->path('lobby')
             ->brandName('Welcome')
-            ->login()
             ->colors([
                 'primary' => Color::Green,
             ])
             ->discoverResources(in: app_path('Filament/Lobby/Resources'), for: 'App\Filament\Lobby\Resources')
+            ->resources([
+                \Bites\Core\Resources\Menus\MenuResource::class,
+            ])
             ->discoverPages(in: app_path('Filament/Lobby/Pages'), for: 'App\Filament\Lobby\Pages')
             ->pages([
                 Dashboard::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Lobby/Widgets'), for: 'App\Filament\Lobby\Widgets')
             ->widgets([
-                AccountWidget::class,
                 FilamentInfoWidget::class,
             ])
             ->middleware([
@@ -53,7 +53,7 @@ class GuestPanelProvider extends PanelProvider
                 DispatchServingFilamentEvent::class,
             ])
             ->authMiddleware([
-                Authenticate::class,
+                // Authenticate::class,
             ]);
     }
 }

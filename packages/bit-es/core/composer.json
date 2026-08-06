@@ -1,15 +1,12 @@
 {
     "name": "bit-es/core",
-    "description": "This is bites package on core models that maybe used by any other models as its attributes",
+    "description": "This is bites package on core models that maybe used by any other models; shared foundation for IDs, roles, settings, metrics, attributes.",
     "keywords": [
         "bit-es",
         "core",
         "laravel",
         "filament"
     ],
-
-
-
     "homepage": "https://github.com/bit-es/core",
     "support": {
         "issues": "https://github.com/bit-es/core/issues",
@@ -23,8 +20,6 @@
             "role": "Developer"
         }
     ],
-
-
     "require": {
         "php": "^8.2",
         "doctrine/dbal": "^4.0",
@@ -32,10 +27,6 @@
         "laravel/framework": "^12.0",
         "spatie/laravel-permission": "^6.21"
     },
-
-
-
-
     "require-dev": {
         "nunomaduro/collision": "^8.6",
         "pestphp/pest": "^3.7",
@@ -46,30 +37,15 @@
             "Bites\\Core\\": "src/"
         }
     },
-
-
-
-
-
     "scripts": {
         "post-autoload-dump": [
             "@php artisan migrate",
             "@php artisan filament:install --silent"
-
-
-
         ],
-
-
-
-
         "post-update-cmd": [],
         "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/pest --coverage"
     },
-
-
-
     "config": {
         "sort-packages": true,
         "allow-plugins": {
@@ -77,10 +53,6 @@
             "phpstan/extension-installer": true
         }
     },
-
-
-
-
     "extra": {
         "laravel": {
             "providers": [
@@ -88,18 +60,12 @@
                 "Bites\\Core\\Providers\\CorePanelProvider",
                 "Bites\\Core\\Providers\\StaffPanelProvider",
                 "Bites\\Core\\Providers\\GuestPanelProvider"
-
             ],
             "aliases": {
                 "Core": "Bites\\Core\\Facades\\Core"
-
-
-
-
             }
         }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
-

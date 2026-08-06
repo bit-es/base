@@ -78,7 +78,7 @@ User → Staff → JobPost → Role / Permission
 - `task_actions` (reusable logic)
 - `request_fulfilments` (instances)
 - `decisions` (DMN rule tables)
-- `decision_rules` and `decision_results`
+- `decision_rules`, `decision_results`
 
 ---
 
@@ -88,7 +88,7 @@ User → Staff → JobPost → Role / Permission
 - `documents`, `document_versions`
 - `document_categories`, `document_tags`
 - `vectors` (pgvector embeddings)
-- `ai_queries` / `ai_sessions`
+- `ai_queries`, `ai_sessions`
 
 Integrates with **Ollama** for LLM-based querying and semantic search.
 
@@ -108,8 +108,8 @@ Integrates with **Ollama** for LLM-based querying and semantic search.
 **Purpose:** Workforce administration.  
 **Tables:**
 - `staff_profiles`
-- `job_posts`
-- `job_post_attributes`
+- `job_vacancies`
+- `job_vacancy_attributes`
 - `performance_reviews`
 - `qualification_test_specifications`
 - `qualification_test_results`
@@ -160,7 +160,7 @@ Integrates with **Ollama** for LLM-based querying and semantic search.
 ### 🌐 11. Lobby (Package)
 **Purpose:** Public-facing portal for careers, tenders, and product showcase.  
 **Tables:**
-- `job_postings`, `tenders`, `product_offerings`, `rfqs`, `rfp_responses`
+- `job_postings`, `job_postings`, `tenders`, `product_offerings`, `rfqs`, `rfp_responses`
 
 ---
 

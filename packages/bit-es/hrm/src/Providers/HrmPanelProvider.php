@@ -35,6 +35,8 @@ class HrmPanelProvider extends PanelProvider
             ->resources([
                 \Bites\Hrm\Resources\Staff\StaffResource::class,
                 \Bites\Hrm\Resources\StaffJobAssignments\StaffJobAssignmentResource::class,
+                \Bites\Hrm\Resources\WorkforceTemplates\WorkforceTemplateResource::class,
+                \Bites\Hrm\Resources\WorkforcePlans\WorkforcePlanResource::class,
             ])
             ->discoverPages(in: app_path('Filament/Hrm/Pages'), for: 'App\Filament\Hrm\Pages')
             ->pages([
